@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="What else should guests know?"
+        android:textSize="30sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:id="@+id/p9Title1"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ninthques1"
+        android:textSize="20sp"
+        android:layout_marginTop="14dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:id="@+id/p9Content1"
+        android:layout_below="@id/p9Title1"
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:layout_below="@id/p9Content1"
+        android:ems="17"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/shape"
+        android:layout_marginTop="18dp"
+        android:id="@+id/p9EditBox1"
+        android:hint="Bring your own camera, sunscreen, or snacks..."
+        android:gravity="top|left"
+        android:padding="7dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:background="@drawable/buttshape"
+        android:textColor="#FFFFFF"
+        android:textAllCaps="false"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/p9EditBox1"
+        android:layout_marginBottom="20dp"
+        android:id="@+id/p9Next"/>
+
+
+
+</RelativeLayout>

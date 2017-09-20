@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Have any guest requirements?"
+        android:textSize="30sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:id="@+id/p12Title1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/twelvethques1"
+            android:textSize="20sp"
+            android:layout_marginTop="12dp"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/p12Content1"
+            android:layout_below="@id/p12Title1"
+            android:layout_marginRight="20dp"
+            />
+
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="130dp"
+        android:ems="17"
+        android:background="@drawable/shape"
+        android:layout_marginTop="15dp"
+        android:layout_below="@id/p12Content1"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:hint="@string/twelvethques2"
+        android:gravity="top|left"
+        android:paddingTop="5dp"
+        android:paddingLeft="6dp"
+        android:id="@+id/p12EditBox1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Additional Requirements"
+            android:id="@+id/p12Content2"
+            android:textSize="20sp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="18dp"
+            android:layout_below="@id/p12EditBox1"
+            />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="130dp"
+            android:ems="17"
+            android:background="@drawable/shape"
+            android:layout_marginTop="15dp"
+            android:layout_below="@id/p12Content2"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:hint="@string/twelvethques3"
+            android:gravity="top|left"
+            android:paddingTop="5dp"
+            android:paddingLeft="6dp"
+            android:id="@+id/p12EditBox2"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:background="@drawable/buttshape"
+            android:text="Next"
+            android:textColor="#FFFFFF"
+            android:layout_below="@id/p12EditBox2"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="25dp"
+            android:id="@+id/p12Next"/>
+
+
+
+    </RelativeLayout>
+
+
+
+</ScrollView>

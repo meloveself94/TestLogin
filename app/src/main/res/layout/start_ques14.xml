@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Give Your Guests Context"
+        android:textSize="27sp"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:id="@+id/p14Title1"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/fourteenthques1"
+        android:textSize="17sp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="13dp"
+        android:layout_below="@id/p14Title1"
+        android:id="@+id/p14Content1"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/shape"
+        android:layout_below="@id/p14Content1"
+        android:ems="17"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="12dp"
+        android:hint="Write any background information here"
+        android:textSize="15sp"
+        android:padding="7dp"
+        android:gravity="top|left"
+        android:id="@+id/p14EditBox1"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create a packing list"
+        android:textSize="27sp"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:layout_marginStart="20dp"
+        android:id="@+id/p14Title2"
+        android:layout_below="@id/p14EditBox1"
+        android:layout_marginTop="17dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Let your guests know what to bring so they’re prepared."
+        android:id="@+id/p14Content2"
+        android:layout_below="@id/p14Title2"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:textSize="17sp"
+        />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/shape"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:hint="Torchlight, snacks, etc..."
+            android:layout_below="@id/p14Content2"
+            android:layout_marginTop="13dp"
+            android:id="@+id/p14EditBox2"
+            />
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:background="@drawable/buttshape"
+            android:textColor="#FFFFFF"
+            android:text="Next"
+            android:id="@+id/p14Next"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/p14EditBox2"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="25dp"
+            android:layout_marginRight="25dp"
+            />
+
+
+    </RelativeLayout>
+
+</ScrollView>

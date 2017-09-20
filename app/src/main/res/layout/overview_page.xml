@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+
+
+
+
+
+    <android.support.v4.widget.DrawerLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/drawerLayout"
+
+
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Be a Companion"/>
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <include layout="@layout/navigation_action"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                />
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                >
+
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Logout"
+                    android:id="@+id/logoutBtn"
+                    android:layout_alignParentStart="true"
+                    android:background="@drawable/buttshape"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"/>
+
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="2dp"
+                    android:text="Be a Companion"
+                    android:id="@+id/companionBtn"
+                    android:layout_alignParentEnd="true"
+                    android:textAllCaps="false"
+                    android:background="@drawable/buttshape"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginEnd="10dp"
+                    />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+
+
+
+                <GridView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/grid"
+                    android:numColumns="auto_fit"
+                    android:stretchMode="columnWidth">
+
+
+
+
+                </GridView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <android.support.design.widget.NavigationView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:menu="@menu/navigation_menu"
+            android:layout_gravity="start"
+            app:headerLayout="@layout/navigation_header">
+
+
+        </android.support.design.widget.NavigationView>
+
+
+
+
+    </android.support.v4.widget.DrawerLayout>
+
+
+
+
+</LinearLayout>

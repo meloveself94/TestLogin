@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.android.testlogin.MainActivity"
+    android:background="@drawable/bert">
+
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_rect">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/dabo"
+        android:maxHeight="120dp"
+        android:maxWidth="120dp"
+        android:scaleType="fitXY"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:adjustViewBounds="true"/>
+
+
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="15"
+        android:textColor="#FFFFFF"
+        android:hint=" Password"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="13dp"
+        android:textColorHint="#FFFFFF"
+        android:background="@drawable/edit_text"
+        android:layout_centerInParent="true"
+        android:padding="10dp"
+        android:inputType="textPassword"
+        android:drawableLeft="@mipmap/ic_vpn_key_white_24dp"
+        android:id="@+id/userPw"/>
+
+
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="15"
+        android:textColor="#FFFFFF"
+        android:hint="  Username"
+        android:textColorHint="#FFFFFF"
+        android:background="@drawable/edit_text"
+        android:layout_above="@id/userPw"
+        android:padding="10dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/userText"
+        android:drawableLeft="@mipmap/ic_account_circle_white_24dp"/>
+
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_button"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/userPw"
+        android:text="Login with Email"
+        android:textColor="#FFFFFF"
+        android:id="@+id/emailLogin" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Not A Member Yet? Sign Up Now"
+        android:textColor="#FFFFFF"
+        android:layout_below="@id/emailLogin"
+        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/signUpText"/>
+
+    <com.google.android.gms.common.SignInButton
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/googleLogin"
+        android:layout_below="@id/signUpText"
+        android:layout_marginTop="10dp"
+        >
+
+    </com.google.android.gms.common.SignInButton>
+
+    <com.facebook.login.widget.LoginButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/googleLogin"
+        android:id="@+id/facebookLogin"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        >
+
+    </com.facebook.login.widget.LoginButton>
+
+
+
+</RelativeLayout>
+
+</RelativeLayout>

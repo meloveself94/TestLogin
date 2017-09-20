@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_rect">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/dabo"
+        android:maxHeight="120dp"
+        android:maxWidth="120dp"
+        android:scaleType="fitXY"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:adjustViewBounds="true"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="15"
+        android:textColor="#FFFFFF"
+        android:hint=" Password"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="13dp"
+        android:textColorHint="#FFFFFF"
+        android:background="@drawable/edit_text"
+        android:layout_centerInParent="true"
+        android:padding="10dp"
+        android:drawableLeft="@mipmap/ic_vpn_key_white_24dp"
+        android:id="@+id/userPw1"
+        android:inputType="textPassword"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="15"
+        android:textColor="#FFFFFF"
+        android:hint="  Username"
+        android:textColorHint="#FFFFFF"
+        android:background="@drawable/edit_text"
+        android:layout_above="@id/userPw1"
+        android:padding="10dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/userText1"
+        android:drawableLeft="@mipmap/ic_account_circle_white_24dp"/>
+
+
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="15"
+        android:textColor="#FFFFFF"
+        android:hint=" Reconfirm Password"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="13dp"
+        android:textColorHint="#FFFFFF"
+        android:background="@drawable/edit_text"
+        android:layout_centerInParent="true"
+        android:padding="10dp"
+        android:inputType="textPassword"
+        android:drawableLeft="@mipmap/ic_vpn_key_white_24dp"
+        android:id="@+id/confirmPw"
+        android:layout_below="@id/userPw1"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="15"
+        android:textColor="#FFFFFF"
+        android:hint="  Email Adress"
+        android:layout_marginTop="13dp"
+        android:textColorHint="#FFFFFF"
+        android:background="@drawable/edit_text"
+        android:padding="10dp"
+        android:drawableLeft="@mipmap/ic_email_white_24dp"
+        android:id="@+id/emailReg"
+        android:layout_below="@+id/confirmPw"
+        android:layout_alignStart="@+id/confirmPw" />
+
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_button"
+        android:layout_marginTop="28dp"
+        android:layout_below="@id/emailReg"
+        android:text="Register"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:id="@+id/register"
+        />
+
+
+
+</RelativeLayout>

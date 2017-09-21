@@ -96,6 +96,7 @@ public class StartQues5 extends AppCompatActivity {
 
 
 
+
                 p5Intent.putExtra("IMAGE" , objInfo);
                 startActivity(p5Intent);
                 finish();

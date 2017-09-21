@@ -54,21 +54,20 @@ public class GridAdapter extends BaseAdapter implements Filterable {
         View v = View.inflate(mContext,R.layout.grid_item, null);
         ImageView putPic = (ImageView)v.findViewById(R.id.imageHere);
         TextView putTitle = (TextView)v.findViewById(R.id.titleHere);
-        TextView putPrice = (TextView)v.findViewById(R.id.per_price);
         TextView putCountry = (TextView)v.findViewById(R.id.countryHere);
+        TextView putPrice = (TextView)v.findViewById(R.id.per_price);
+
 
 
         //
-        putCountry.setText("Country: " + gtem.get(position).getCountry());
         putTitle.setText(gtem.get(position).getmTitleHere());
-        putCountry.setText(gtem.get(position).getCountry());
+        putCountry.setText("Country: " + gtem.get(position).getCountry());
         putPrice.setText("Price: " + "$" + gtem.get(position).getmPriceHere());
         Picasso.with(mContext).load(gtem.get(position).getmImageView()).resize(450 , 500).into(putPic);
 
 
         return v;
     }
-
 
 
     @Override
@@ -102,10 +101,7 @@ public class GridAdapter extends BaseAdapter implements Filterable {
                 {
                     if (filterList.get(i).getmTitleHere().toUpperCase().contains(constraint))
                     {
-                        GridItem g = new GridItem(filterList.get(i).getmTitleHere() , filterList.get(i).getmPriceHere(), filterList.get(i).getmImageView()
-                        , filterList.get(i).getCountry());
-
-                        filters.add(g);
+                        filters.add(filterList.get(i));
                     }
                 }
                 results.count = filters.size();

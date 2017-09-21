@@ -9,12 +9,14 @@ public class GridItem implements Serializable {
     String tripTagline;
     String price;
     String country;
+    int mama;
 
-    public GridItem( String imageView, String titleHere, String priceHere , String countryHere) {
+    public GridItem( String imageView, String titleHere, String countryHere , String priceHere) {
         photo_url = imageView;
         tripTagline = titleHere;
         price = priceHere;
         country = countryHere;
+
     }
     public GridItem(){}
 
@@ -49,4 +51,6 @@ public class GridItem implements Serializable {
     public void setCountry(String country) {
         this.country = country;
     }
+
+
 }

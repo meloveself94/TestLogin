@@ -112,7 +112,7 @@ public class StartQues13 extends AppCompatActivity {
                 objInfo.setP14TimeRequired(p13item2);
                 objInfo.setP14EnterPrice(box1);
 
-                gItem.setmPriceHere(String.valueOf(box1));
+                //gItem.setmPriceHere(String.valueOf(box1));
 
 
 

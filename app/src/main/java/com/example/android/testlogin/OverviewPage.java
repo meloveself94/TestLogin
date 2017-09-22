@@ -136,16 +136,11 @@ public class OverviewPage extends AppCompatActivity  {
 
                     String photoUrl = (String) ds.child("photo").getValue();
                     String title = (String) ds.child("experienceTitle").getValue();
-                    String price = (String) ds.child("price").getValue();
                     String country = (String) ds.child("country").getValue();
+                    String price = (String) ds.child("price").getValue();
+
                     GridItem mGriditem = new GridItem(photoUrl,title,country,price);
                     elements.add(mGriditem);
-
-
-
-
-/*                    GridItem mGridItem = dataSnapshot.getValue(GridItem.class);
-                    elements.add(mGridItem);*/
 
 
 

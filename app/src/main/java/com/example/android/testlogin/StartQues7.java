@@ -95,7 +95,7 @@ public class StartQues7 extends AppCompatActivity {
                 objInfo.setP8State(box5);
                 objInfo.setP8ZipCode(box6);
 
-                gtem.setCountry(p7Item);
+                //gtem.setCountry(p7Item);
 
                 Intent p7Intent = new Intent(StartQues7.this , StartQues8.class);
                 p7Intent.putExtra("MEETUP" , objInfo);

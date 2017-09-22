@@ -92,7 +92,7 @@ public class StartQues5 extends AppCompatActivity {
                 Intent p5Intent = new Intent(StartQues5.this , StartQues6.class);
 
                 objInfo.setP6Photo(downloadUri.toString());
-                gItem.setmImageView(downloadUri.toString());
+                //gItem.setmImageView(downloadUri.toString());
 
 
 

@@ -168,7 +168,7 @@ public class StartQues4 extends AppCompatActivity {
                 objInfo.setP5StartTime(p4Item);
                 objInfo.setP5EndTime(p4Item2);
 
-                gItem.setmTitleHere(mTitle);
+                // gItem.setmTitleHere(mTitle);
 
 
 

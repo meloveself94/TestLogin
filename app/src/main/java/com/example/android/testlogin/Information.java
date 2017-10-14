@@ -17,6 +17,7 @@ public class Information implements Serializable  {
     String p5EndTime;
     String p5Tagline;
     String p6Photo;
+    String p6ThumbPhoto;
     String p7Activity;
     String p7Place;
     String p8LocationName;
@@ -40,8 +41,50 @@ public class Information implements Serializable  {
     RadioButton p16Agree2;
 
 
+    public Information(String p2Language, String p3Category, String p5Title, String p5StartTime,
+                       String p5EndTime, String p5Tagline, String p6Photo, String p6ThumbPhoto,
+                       String p7Activity, String p7Place, String p8LocationName, String p8Country,
+                       String p8StreetAddress, String p8UnitNo, String p8City, String p8State,
+                       String p8ZipCode, String p9Provide, String p10ExtraKnowledge, String p12Bio,
+                       String p13Requirement, String p13AddRequirement, String p14NoOfGuest,
+                       int p14EnterPrice, String p14TimeRequired, String p15GuestContext,
+                       String p15PackingList, RadioButton p16Agree1, RadioButton p16Agree2)
 
+    {
+        this.p2Language = p2Language;
+        this.p3Category = p3Category;
+        this.p5Title = p5Title;
+        this.p5StartTime = p5StartTime;
+        this.p5EndTime = p5EndTime;
+        this.p5Tagline = p5Tagline;
+        this.p6Photo = p6Photo;
+        this.p6ThumbPhoto = p6ThumbPhoto;
+        this.p7Activity = p7Activity;
+        this.p7Place = p7Place;
+        this.p8LocationName = p8LocationName;
+        this.p8Country = p8Country;
+        this.p8StreetAddress = p8StreetAddress;
+        this.p8UnitNo = p8UnitNo;
+        this.p8City = p8City;
+        this.p8State = p8State;
+        this.p8ZipCode = p8ZipCode;
+        this.p9Provide = p9Provide;
+        this.p10ExtraKnowledge = p10ExtraKnowledge;
+        this.p12Bio = p12Bio;
+        this.p13Requirement = p13Requirement;
+        this.p13AddRequirement = p13AddRequirement;
+        this.p14NoOfGuest = p14NoOfGuest;
+        this.p14EnterPrice = p14EnterPrice;
+        this.p14TimeRequired = p14TimeRequired;
+        this.p15GuestContext = p15GuestContext;
+        this.p15PackingList = p15PackingList;
+        this.p16Agree1 = p16Agree1;
+        this.p16Agree2 = p16Agree2;
+    }
 
+    public Information() {
+
+    }
 
     public String getP2Language() {
         return p2Language;
@@ -98,6 +141,15 @@ public class Information implements Serializable  {
 
     public void setP6Photo(String p6Photo) {
         this.p6Photo = p6Photo;
+    }
+
+
+    public String getP6ThumbPhoto() {
+        return p6Photo;
+    }
+
+    public void setP6ThumbPhoto(String p6ThumbPhoto) {
+        this.p6ThumbPhoto = p6ThumbPhoto;
     }
 
     public String getP7Activity() {

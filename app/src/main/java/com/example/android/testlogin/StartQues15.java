@@ -29,7 +29,8 @@ public class StartQues15 extends AppCompatActivity {
     CheckBox p15CheckBox1;
     CheckBox p15CheckBox2;
     DatabaseReference mDatabase;
-    DatabaseReference pushRef1;
+    FirebaseUser mCurrentUser;
+
 
 
     Button p15Submit;
@@ -42,7 +43,10 @@ public class StartQues15 extends AppCompatActivity {
 
         objInfo = (Information) getIntent().getSerializableExtra("PACKING");
 
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("comPostsCopy");
+        mCurrentUser = FirebaseAuth.getInstance().getCurrentUser();
+        String currentUid = mCurrentUser.getUid();
+
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("comPostsCopy").child(currentUid);
 
         p15CheckBox1 = (CheckBox) findViewById(R.id.p15CheckBox1);
         p15CheckBox2 = (CheckBox) findViewById(R.id.p15CheckBox2);
@@ -74,6 +78,7 @@ public class StartQues15 extends AppCompatActivity {
                     dataMap.put("endTime" , objInfo.getP5EndTime());
                     dataMap.put("tripTagline" , objInfo.getP5Tagline());
                     dataMap.put("photo" , objInfo.getP6Photo());
+                    dataMap.put("thumbPhoto" , objInfo.getP6ThumbPhoto());
                     dataMap.put("activity " , objInfo.getP7Activity());
                     dataMap.put("place" , objInfo.getP7Place());
                     dataMap.put("locationName" , objInfo.getP8LocationName());
@@ -104,8 +109,8 @@ public class StartQues15 extends AppCompatActivity {
 
 
 
-                    pushRef1 = mDatabase.push();
-                    pushRef1.setValue(dataMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+
+                    mDatabase.setValue(dataMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
 

@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.Toast;
 
@@ -39,6 +40,7 @@ public class OverviewPage extends AppCompatActivity  {
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mActionBarToggle;
     private Toolbar mToolbar;
+    ImageView chatImage;
 
 
     Button companionBtn;
@@ -57,6 +59,7 @@ public class OverviewPage extends AppCompatActivity  {
 
         mToolbar = (Toolbar) findViewById(R.id.nav_action);
         setSupportActionBar(mToolbar);
+        chatImage = (ImageView) findViewById(R.id.chatImage);
         lvPackage = (GridView) findViewById(R.id.grid);
         logoutBtn = (Button) findViewById(R.id.logoutBtn);
         companionBtn = (Button) findViewById(R.id.companionBtn);
@@ -85,6 +88,15 @@ public class OverviewPage extends AppCompatActivity  {
             public void onClick(View v) {
                 Intent intent1 = new Intent(OverviewPage.this, StartQues1.class);
                 startActivity(intent1);
+            }
+        });
+
+
+        chatImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent chatIntent = new Intent(OverviewPage.this , ChatPage.class);
+                startActivity(chatIntent);
             }
         });
 
@@ -183,6 +195,14 @@ public class OverviewPage extends AppCompatActivity  {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        super.onOptionsItemSelected(item);
+
+        if (item.getItemId() == R.id.sign_out_menu) {
+
+            mAuth1.signOut();
+
+        }
+
         if(mActionBarToggle.onOptionsItemSelected(item)){
             return true;
 
@@ -193,8 +213,10 @@ public class OverviewPage extends AppCompatActivity  {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater1 = getMenuInflater();
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_search, menu);
+        inflater1.inflate(R.menu.main_menu , menu);
         MenuItem item = menu.findItem(R.id.menuSearch);
         SearchView searchView = (SearchView)item.getActionView();
         //SearchManager searchManager = (SearchManager) getSystemService(SEARCH_SERVICE);
@@ -220,6 +242,7 @@ public class OverviewPage extends AppCompatActivity  {
 
         return super.onCreateOptionsMenu(menu);
     }
+
 
 
 }

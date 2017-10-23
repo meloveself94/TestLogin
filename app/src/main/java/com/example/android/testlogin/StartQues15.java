@@ -33,6 +33,7 @@ public class StartQues15 extends AppCompatActivity {
 
 
 
+
     Button p15Submit;
 
 
@@ -46,7 +47,7 @@ public class StartQues15 extends AppCompatActivity {
         mCurrentUser = FirebaseAuth.getInstance().getCurrentUser();
         String currentUid = mCurrentUser.getUid();
 
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("comPostsCopy").child(currentUid);
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("comPostsCopy");
 
         p15CheckBox1 = (CheckBox) findViewById(R.id.p15CheckBox1);
         p15CheckBox2 = (CheckBox) findViewById(R.id.p15CheckBox2);
@@ -73,13 +74,14 @@ public class StartQues15 extends AppCompatActivity {
 
                     HashMap<String , String> dataMap = new HashMap<String, String>();
                     dataMap.put("language" , objInfo.getP2Language());
-                    dataMap.put("experienceTitle" , objInfo.getP5Title());
+                    dataMap.put("type" , objInfo.getP2HalfType());
+                    dataMap.put("title" , objInfo.getP5Title());
                     dataMap.put("startTime" , objInfo.getP5StartTime());
                     dataMap.put("endTime" , objInfo.getP5EndTime());
-                    dataMap.put("tripTagline" , objInfo.getP5Tagline());
-                    dataMap.put("photo" , objInfo.getP6Photo());
+                    dataMap.put("tagline" , objInfo.getP5Tagline());
+                    dataMap.put("imgUrls" , objInfo.getP6Photo());
                     dataMap.put("thumbPhoto" , objInfo.getP6ThumbPhoto());
-                    dataMap.put("activity " , objInfo.getP7Activity());
+                    dataMap.put("activity" , objInfo.getP7Activity());
                     dataMap.put("place" , objInfo.getP7Place());
                     dataMap.put("locationName" , objInfo.getP8LocationName());
                     dataMap.put("country" , objInfo.getP8Country());
@@ -88,15 +90,15 @@ public class StartQues15 extends AppCompatActivity {
                     dataMap.put("city" , objInfo.getP8City());
                     dataMap.put("state" , objInfo.getP8State());
                     dataMap.put("zipCode" , objInfo.getP8ZipCode());
-                    dataMap.put("provide" , objInfo.getP9Provide());
-                    dataMap.put("extraKnowledge" , objInfo.getP10ExtraKnowledge());
-                    dataMap.put("bio" , objInfo.getP12Bio());
-                    dataMap.put("basicRequirement" , objInfo.getP13Requirement());
-                    dataMap.put("additionalRequirement" , objInfo.getP13AddRequirement());
-                    dataMap.put("guestNumber" , objInfo.getP14NoOfGuest());
-                    dataMap.put("price" , String.valueOf(objInfo.getP14EnterPrice()));
-                    dataMap.put("requiredTime" , objInfo.getP14TimeRequired());
-                    dataMap.put("guestContext" , objInfo.getP15GuestContext());
+                    dataMap.put("itemProvide" , objInfo.getP9Provide());
+                    dataMap.put("extraInfo" , objInfo.getP10ExtraKnowledge());
+                    dataMap.put("hostBio" , objInfo.getP12Bio());
+                    dataMap.put("basicReq" , objInfo.getP13Requirement());
+                    dataMap.put("addiReq" , objInfo.getP13AddRequirement());
+                    dataMap.put("maxGroupSize" , objInfo.getP14NoOfGuest());
+                    dataMap.put("pricePerGuest" , String.valueOf(objInfo.getP14EnterPrice()));
+                    dataMap.put("timePrepare" , objInfo.getP14TimeRequired());
+                    dataMap.put("activityContext" , objInfo.getP15GuestContext());
                     dataMap.put("packingList" , objInfo.getP15PackingList());
                     dataMap.put("hostUID" , hello);
 
@@ -110,7 +112,7 @@ public class StartQues15 extends AppCompatActivity {
 
 
 
-                    mDatabase.setValue(dataMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    mDatabase.push().setValue(dataMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
 

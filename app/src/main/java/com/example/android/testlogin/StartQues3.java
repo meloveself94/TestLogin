@@ -21,7 +21,7 @@ public class StartQues3 extends AppCompatActivity {
 
         p3button2 = (Button) findViewById(R.id.p3button2);
 
-        objInfo =(Information) getIntent().getSerializableExtra("LANGUAGE");
+        objInfo =(Information) getIntent().getSerializableExtra("TOURISM");
 
 
 

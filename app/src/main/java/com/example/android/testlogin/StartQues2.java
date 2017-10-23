@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.Spinner;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -48,11 +47,7 @@ public class StartQues2 extends AppCompatActivity {
         spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                mAuth = FirebaseAuth.getInstance();
-                mFirebaseDatabase = FirebaseDatabase.getInstance();
-                FirebaseUser user = mAuth.getCurrentUser();
-                assert user != null;
-                userID = user.getUid();
+
 
                 //Selected item. to be passed as intent
                  item = parent.getItemAtPosition(position).toString();
@@ -91,30 +86,14 @@ public class StartQues2 extends AppCompatActivity {
                 objInfo.setP2Language(item);
 
 
-                Intent intent = new Intent(StartQues2.this , StartQues3.class);
+                Intent intent = new Intent(StartQues2.this , StartQues2Half.class);
                 intent.putExtra("LANGUAGE" , objInfo);
 
 
                 startActivity(intent);
-                finish();
 
 
-                //mDatabase.addValueEventListener(new ValueEventListener() {
-                    //@Override
-                    //public void onDataChange(DataSnapshot dataSnapshot) {
 
-                        //showData(dataSnapshot);
-                        //assert (item != null);
-                        //returnDatabase.setValue(item);
-
-
-                    //}
-
-                    //@Override
-                    //public void onCancelled(DatabaseError databaseError) {
-
-                    //}
-                //});
 
             }
         });
@@ -123,16 +102,6 @@ public class StartQues2 extends AppCompatActivity {
     }
 
 
-   // private void showData(DataSnapshot dataSnapshot) {
-        //for (DataSnapshot ds : dataSnapshot.getChildren()) {
-            //String getKey = ds.getKey();
-
-
-                //returnDatabase = mDatabase.child(getKey).child("Language");
-
-
-        //}
-    //}
 
 
 

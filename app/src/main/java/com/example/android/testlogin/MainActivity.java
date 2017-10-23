@@ -1,10 +1,13 @@
 package com.example.android.testlogin;
 
+import android.accounts.Account;
+import android.accounts.AccountManager;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +19,7 @@ import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
@@ -34,11 +38,16 @@ import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
-import com.facebook.FacebookSdk;
-import com.facebook.appevents.AppEventsLogger;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
 
 
 public class MainActivity extends AppCompatActivity {
+
+    private DatabaseReference mDatabase;
+    private DatabaseReference pushRef;
 
     private SignInButton mGoogleBtn;
 
@@ -84,6 +93,8 @@ public class MainActivity extends AppCompatActivity {
 
         mSignUp = (TextView) findViewById(R.id.signUpText);
 
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+
 
 
 
@@ -100,6 +111,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 signIn();
+
+                Account account = getAccount(AccountManager.get(getApplicationContext()));
+                String accountName = account.name;
+                String fullName = accountName.substring(0,accountName.lastIndexOf("@"));
+
             }
         });
 
@@ -170,8 +186,7 @@ public class MainActivity extends AppCompatActivity {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
             if (firebaseAuth.getCurrentUser() != null) {
                 Intent intent = new Intent(MainActivity.this, OverviewPage.class);
-                String email = user.getEmail();
-                String name = user.getDisplayName();
+
                 startActivity(intent);
                 finish();
 
@@ -299,6 +314,26 @@ public class MainActivity extends AppCompatActivity {
                 // Google Sign In was successful, authenticate with Firebase
                 GoogleSignInAccount account = result.getSignInAccount();
                 firebaseAuthWithGoogle(account);
+                String personName = account.getDisplayName().toString();
+                String personGivenName = account.getGivenName().toString();
+                String personFamilyName = account.getFamilyName().toString();
+                String personEmail = account.getEmail().toString();
+                String personId = account.getId();
+                Uri personPhoto = account.getPhotoUrl();
+
+                HashMap<String , String> dataMap = new HashMap<String, String>();
+                dataMap.put("displayName" , personName);
+                dataMap.put("email" , personEmail);
+                dataMap.put("userPic" , String.valueOf(personPhoto));
+
+                //Set all these data to the root of the Database
+
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                String hello = user.getUid();
+
+                pushRef = mDatabase.child(hello);
+                pushRef.setValue(dataMap);
+
             } else {
 
                 Toast.makeText(MainActivity.this, "Auth went wrong", Toast.LENGTH_SHORT).show();
@@ -306,6 +341,17 @@ public class MainActivity extends AppCompatActivity {
                 // ...
             }
         }
+    }
+
+    public static Account getAccount(AccountManager accountManager) {
+        Account[] accounts = accountManager.getAccountsByType("com.google");
+        Account account;
+        if (accounts.length > 0) {
+            account = accounts[0];
+        } else {
+            account = null;
+        }
+        return account;
     }
 
 

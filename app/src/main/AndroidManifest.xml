@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.android.testlogin">
 
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -101,6 +102,16 @@
         </activity>
 
         <activity android:name=".RegistrationPage"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name=".EachTripActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+
+        <activity android:name=".AccountSettings"
+            android:windowSoftInputMode="stateHidden"
             android:screenOrientation="portrait">
         </activity>
 

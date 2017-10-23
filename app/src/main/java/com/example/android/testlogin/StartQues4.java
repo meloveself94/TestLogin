@@ -142,19 +142,7 @@ public class StartQues4 extends AppCompatActivity {
         p4next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Save two edittexts to database here.
 
-                //final String mTitle = p4EditBox1.getText().toString().trim();
-                //final String mTagline = p4EditBox2.getText().toString().trim();
-
-                //HashMap<String , String> dataMap1 = new HashMap<String, String>();
-                //dataMap1.put("Experience Title"  , mTitle);
-               // dataMap1.put("Experience Tagline" , mTagline);
-
-
-                //Set all these data to the respective user's database.
-                //return4ButtonDatabase2.setValue(dataMap1);
-                //Set.
 
 
                 //Intent to following page.

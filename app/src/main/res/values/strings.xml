@@ -78,8 +78,17 @@
 
 
 
-
-
+    <string-array name="spinnertype">
+        <item>Select Type</item>
+        <item>Ecotourism</item>
+        <item>Medical Tourism</item>
+        <item>Cultural Tourism</item>
+        <item>Food Tourism</item>
+        <item>Leisure Tourism</item>
+        <item>Sport Tourism</item>
+        <item>Business Tourism</item>
+        <item>Health Tourism</item>
+    </string-array>
 
 
 

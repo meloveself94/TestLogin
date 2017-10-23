@@ -11,6 +11,7 @@ import java.io.Serializable;
 public class Information implements Serializable  {
 
     String p2Language;
+    String p2HalfType;
     String p3Category;
     String p5Title;
     String p5StartTime;
@@ -41,7 +42,7 @@ public class Information implements Serializable  {
     RadioButton p16Agree2;
 
 
-    public Information(String p2Language, String p3Category, String p5Title, String p5StartTime,
+    public Information(String p2Language, String p2HalfType, String p3Category, String p5Title, String p5StartTime,
                        String p5EndTime, String p5Tagline, String p6Photo, String p6ThumbPhoto,
                        String p7Activity, String p7Place, String p8LocationName, String p8Country,
                        String p8StreetAddress, String p8UnitNo, String p8City, String p8State,
@@ -52,6 +53,7 @@ public class Information implements Serializable  {
 
     {
         this.p2Language = p2Language;
+        this.p2HalfType = p2HalfType;
         this.p3Category = p3Category;
         this.p5Title = p5Title;
         this.p5StartTime = p5StartTime;
@@ -95,6 +97,13 @@ public class Information implements Serializable  {
 
     }
 
+    public String getP2HalfType () {
+        return p2HalfType;
+    }
+
+    public void setP2HalfType(String p2HalfType) {
+        this.p2HalfType = p2HalfType;
+    }
     public String getP3Category() {
         return p3Category;
     }

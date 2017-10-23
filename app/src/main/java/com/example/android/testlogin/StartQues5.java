@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -93,7 +94,7 @@ public class StartQues5 extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                //
+                Toast.makeText(StartQues5.this , "Successfully Uploaded Image" , Toast.LENGTH_SHORT).show();
 
 
             }
@@ -104,12 +105,7 @@ public class StartQues5 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
                 Intent p5Intent = new Intent(StartQues5.this, StartQues6.class);
-
-
-                //gItem.setmImageView(downloadUri.toString());
-
 
                 p5Intent.putExtra("IMAGE", objInfo);
                 startActivity(p5Intent);
@@ -189,7 +185,7 @@ public class StartQues5 extends AppCompatActivity {
                 //Path for image
                 StorageReference filePath = mStorage.child("trip_images").child(userUid).child(UUID.randomUUID().toString() + ".jpg");
                 //Path for thumbnail
-                final StorageReference thumbFilePath = mStorage.child("trip_images").child("thumb").child(UUID.randomUUID().toString() + ".jpg");
+                final StorageReference thumbFilePath = mStorage.child("trip_images").child("thumb").child(userUid).child(UUID.randomUUID().toString() + ".jpg");
 
                 //Upload Main Image back to StartQues5
                 filePath.putFile(resultUri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {

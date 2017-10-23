@@ -42,7 +42,7 @@
         android:layout_height="275dp"
         android:inputType="textMultiLine"
         android:hint="   What we'll provide "
-        android:paddingTop="20dp"
+        android:padding="10dp"
         android:background="@drawable/shape"
         android:layout_below="@id/p8Content1"
         android:ems="17"

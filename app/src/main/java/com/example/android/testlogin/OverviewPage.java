@@ -1,31 +1,31 @@
 package com.example.android.testlogin;
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.SearchView;
-import android.widget.Toast;
+import android.widget.TextView;
 
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
+import com.squareup.picasso.Picasso;
 
 /**
  * Created by Zote's on 8/28/2017.
@@ -33,23 +33,20 @@ import java.util.ArrayList;
 
 public class OverviewPage extends AppCompatActivity  {
 
-    private GridView lvPackage;
-    private GridAdapter adapter;
 
+    private GridAdapter adapter;
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mActionBarToggle;
     private Toolbar mToolbar;
     ImageView chatImage;
 
-
     Button companionBtn;
-    Button logoutBtn;
+    private RecyclerView mTripList;
     private FirebaseAuth mAuth1;
     private FirebaseAuth.AuthStateListener mAuthListener1;
     private DatabaseReference mDatabaseReference;
-
-
+    private FirebaseUser mCurrentUser;
 
 
     @Override
@@ -59,17 +56,24 @@ public class OverviewPage extends AppCompatActivity  {
 
         mToolbar = (Toolbar) findViewById(R.id.nav_action);
         setSupportActionBar(mToolbar);
+
+        //For the recycler view//
+        mTripList = (RecyclerView) findViewById(R.id.my_recycler_view);
+        //mTripList.setHasFixedSize(true);
+        mTripList.setLayoutManager(new LinearLayoutManager(this));
+
+
+        //For Buttons to work
         chatImage = (ImageView) findViewById(R.id.chatImage);
-        lvPackage = (GridView) findViewById(R.id.grid);
-        logoutBtn = (Button) findViewById(R.id.logoutBtn);
         companionBtn = (Button) findViewById(R.id.companionBtn);
+
+        //For Firebase
+        mCurrentUser = FirebaseAuth.getInstance().getCurrentUser();
+        String currentUid = mCurrentUser.getUid();
         mDatabaseReference = FirebaseDatabase.getInstance().getReference().child("comPostsCopy");
-
-
-
-
-
         mAuth1 = FirebaseAuth.getInstance();
+
+
         mAuthListener1 = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -103,16 +107,9 @@ public class OverviewPage extends AppCompatActivity  {
 
 
 
-        logoutBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                mAuth1.signOut();
 
 
 
-            }
-        });
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         mActionBarToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open , R.string.close);
@@ -124,65 +121,7 @@ public class OverviewPage extends AppCompatActivity  {
 
 
 
-
-
-
-        //Add sample data for list;
-        //We can get from Database and Webservice here.
-
-
-
-        final ArrayList<GridItem> elements = new ArrayList<GridItem>();
-
-
-
-
-        mDatabaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                elements.clear();
-
-                //Loop Through Children
-                for(DataSnapshot ds : dataSnapshot.getChildren()){
-
-                    String photoUrl = (String) ds.child("photo").getValue();
-                    String title = (String) ds.child("experienceTitle").getValue();
-                    String country = (String) ds.child("country").getValue();
-                    String price = (String) ds.child("price").getValue();
-
-                    GridItem mGriditem = new GridItem(photoUrl,title,country,price);
-                    elements.add(mGriditem);
-
-
-
-                }
-                adapter.notifyDataSetChanged();
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-        //Initialize Adapter
-
-        adapter = new GridAdapter(this, elements );
-        lvPackage.setAdapter(adapter);
-
-
-        lvPackage.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //Do something
-                Toast.makeText(OverviewPage.this, "Not yet", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
-    }
+    } //-------OnCreate ends here // -------
 
 
 
@@ -190,7 +129,90 @@ public class OverviewPage extends AppCompatActivity  {
     protected void onStart() {
         super.onStart();
 
+        //Listens to auth state wheter is logged in or not first thing.
         mAuth1.addAuthStateListener(mAuthListener1);
+
+
+        FirebaseRecyclerAdapter<CardItem , TripsViewHolder> firebaseRecyclerAdapter
+                = new FirebaseRecyclerAdapter<CardItem, TripsViewHolder>(
+
+                        CardItem.class,
+                        R.layout.single_card,
+                        TripsViewHolder.class,
+                        mDatabaseReference
+
+        ) {
+            @Override
+            protected void populateViewHolder(TripsViewHolder viewHolder, CardItem trips, int position) {
+
+                viewHolder.setTitle(trips.getTitle());
+                viewHolder.setCountry(trips.getCountry());
+                viewHolder.setPrice("Price: $" +trips.getPricePerGuest());
+                viewHolder.setUserImage(trips.getThumbPhoto(), getApplicationContext());
+
+                final String key = getRef(position).getKey();
+
+                //Set the whole view to be clickable to the trip profile page.
+                viewHolder.mView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        Intent tripProfileIntent = new Intent(OverviewPage.this , EachTripActivity.class);
+                        tripProfileIntent.putExtra("pushKey" , key);
+                        startActivity(tripProfileIntent);
+
+
+                    }
+                });
+
+            }
+        };
+
+
+
+        mTripList.setAdapter(firebaseRecyclerAdapter);
+
+
+
+    }
+
+    public static class TripsViewHolder extends RecyclerView.ViewHolder {
+
+        //View used by firebase adapter.
+        //Also made to set for onclicklistener for the recycler view items.
+        View mView;
+
+        public TripsViewHolder(View itemView) {
+            super(itemView);
+
+            //Set the view used by firebase adapter to itemview.
+            mView = itemView;
+        }
+
+        public void setUserImage(String thumbPhoto , Context ctx) {
+            ImageView tripImageView = mView.findViewById(R.id.trip_image);
+
+            Picasso.with(ctx).load(thumbPhoto).placeholder(R.drawable.defaultavatar).into(tripImageView);
+        }
+
+        public void setTitle(String title) {
+
+            TextView mTripTitle = mView.findViewById(R.id.trip_title);
+            mTripTitle.setText(title);
+
+        }
+
+        public void setCountry(String country) {
+            TextView mTripCountry = mView.findViewById(R.id.trip_country);
+            mTripCountry.setText(country);
+        }
+
+        public void setPrice(String pricePerGuest) {
+            TextView mTripPrice = mView.findViewById(R.id.trip_price);
+            mTripPrice.setText(pricePerGuest);
+        }
+
+
     }
 
     @Override
@@ -201,6 +223,12 @@ public class OverviewPage extends AppCompatActivity  {
 
             mAuth1.signOut();
 
+        }
+
+        if (item.getItemId() == R.id.account_settings) {
+
+            Intent accountSettingsIntent =new Intent(OverviewPage.this , AccountSettings.class);
+            startActivity(accountSettingsIntent);
         }
 
         if(mActionBarToggle.onOptionsItemSelected(item)){
@@ -218,8 +246,8 @@ public class OverviewPage extends AppCompatActivity  {
         inflater.inflate(R.menu.menu_search, menu);
         inflater1.inflate(R.menu.main_menu , menu);
         MenuItem item = menu.findItem(R.id.menuSearch);
-        SearchView searchView = (SearchView)item.getActionView();
-        //SearchManager searchManager = (SearchManager) getSystemService(SEARCH_SERVICE);
+        SearchView searchView = (SearchView) item.getActionView();
+        SearchManager searchManager = (SearchManager) getSystemService(SEARCH_SERVICE);
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override

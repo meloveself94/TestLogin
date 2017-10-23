@@ -42,6 +42,7 @@ dependencies {
     compile 'com.theartofdev.edmodo:android-image-cropper:2.5.+'
     compile 'com.iceteck.silicompressorr:silicompressor:2.1'
     compile 'id.zelory:compressor:2.1.0'
+    compile 'de.hdodenhof:circleimageview:2.2.0'
     testCompile 'junit:junit:4.12'
 
     configurations.all {

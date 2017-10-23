@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_rect">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/dabo"
-        android:maxHeight="120dp"
-        android:maxWidth="120dp"
-        android:scaleType="fitXY"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:src="@drawable/addme"
+        android:scaleType="centerCrop"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:adjustViewBounds="true"/>
+        app:civ_border_width="5dp"
+        app:civ_border_color="#283593"
+        android:id="@+id/userProfilePic"
+        />
+
+
 
     <EditText
         android:layout_width="wrap_content"
@@ -36,7 +42,7 @@
         android:layout_height="wrap_content"
         android:ems="15"
         android:textColor="#FFFFFF"
-        android:hint="  Username"
+        android:hint="  Display Name"
         android:textColorHint="#FFFFFF"
         android:background="@drawable/edit_text"
         android:layout_above="@id/userPw1"

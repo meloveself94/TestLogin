@@ -46,10 +46,14 @@
         android:textColorHint="#FFFFFF"
         android:background="@drawable/edit_text"
         android:layout_above="@id/userPw1"
-        android:padding="10dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingRight="10dp"
+        android:inputType="textPassword"
         android:layout_centerHorizontal="true"
         android:id="@+id/userText1"
-        android:drawableLeft="@mipmap/ic_account_circle_white_24dp"/>
+        android:drawableStart="@mipmap/ic_account_circle_white_24dp"/>
 
 
 
@@ -64,9 +68,12 @@
         android:textColorHint="#FFFFFF"
         android:background="@drawable/edit_text"
         android:layout_centerInParent="true"
-        android:padding="10dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingRight="10dp"
         android:inputType="textPassword"
-        android:drawableLeft="@mipmap/ic_vpn_key_white_24dp"
+        android:drawableStart="@mipmap/ic_vpn_key_white_24dp"
         android:id="@+id/confirmPw"
         android:layout_below="@id/userPw1"/>
 
@@ -80,8 +87,9 @@
         android:textColorHint="#FFFFFF"
         android:background="@drawable/edit_text"
         android:padding="10dp"
-        android:drawableLeft="@mipmap/ic_email_white_24dp"
+        android:drawableStart="@mipmap/ic_email_white_24dp"
         android:id="@+id/emailReg"
+        android:inputType="textEmailAddress"
         android:layout_below="@+id/confirmPw"
         android:layout_alignStart="@+id/confirmPw" />
 

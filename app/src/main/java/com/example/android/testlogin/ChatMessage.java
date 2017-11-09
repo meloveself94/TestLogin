@@ -8,15 +8,19 @@ public class ChatMessage {
 
     private String text;
     private String name;
-    private String photoUrl;
+    private String isUnread;
+    private String from;
+
 
     public ChatMessage() {
     }
 
-    public ChatMessage(String text, String username, String photoUrl) {
+    public ChatMessage(String text, String name , String isUnread , String from) {
         this.text = text;
-        this.name = username;
-        this.photoUrl = photoUrl;
+        this.name = name;
+        this.isUnread = isUnread;
+        this.from = from;
+
     }
 
     public String getText() {
@@ -27,6 +31,7 @@ public class ChatMessage {
         this.text = text;
     }
 
+
     public String getName() {
         return name;
     }
@@ -36,11 +41,19 @@ public class ChatMessage {
         return name;
     }
 
-    public String getPhotoUrl() {
-        return photoUrl;
+    public String getIsUnread() {
+        return isUnread;
     }
 
-    public void setPhotoUrl(String photoUrl) {
-        this.photoUrl = photoUrl;
+    public void setUnread(String isUnread) {
+        this.isUnread = isUnread;
+    }
+
+    public String getFrom() {
+        return from;
+    }
+
+    public void setFrom(String from) {
+        this.from = from;
     }
 }

@@ -121,11 +121,12 @@
     </android.support.v4.widget.DrawerLayout>
 
     <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyle"
+        android:id="@+id/custom_progressBar"
+        style="@style/MyProgressBarRectangle"
         android:layout_centerInParent="true"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:visibility="visible"/>
 
 
 

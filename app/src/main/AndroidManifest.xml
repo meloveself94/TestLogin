@@ -29,10 +29,6 @@
         </activity>
 
 
-    <activity android:name=".ChatPage"
-        android:screenOrientation="portrait">
-    </activity>
-
         <activity android:name=".StartQues15"
             android:screenOrientation="portrait">
         </activity>
@@ -110,10 +106,29 @@
         </activity>
 
 
+        <activity android:name=".ChatActivity"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".EachTripActivity">
+        </activity>
+
+
+        <activity android:name=".StartQues2Half"
+            android:screenOrientation="portrait">
+        </activity>
+
+
         <activity android:name=".AccountSettings"
             android:windowSoftInputMode="stateHidden"
             android:screenOrientation="portrait">
         </activity>
+
+
+        <activity android:name=".ChatUsersActivity"
+            android:windowSoftInputMode="stateHidden"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".OverviewPage">
+        </activity>
+
 
 
         <meta-data

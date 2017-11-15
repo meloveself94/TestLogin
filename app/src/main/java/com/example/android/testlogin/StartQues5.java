@@ -44,10 +44,10 @@ public class StartQues5 extends AppCompatActivity {
     private final int RESULT_LOAD_IMAGE = 0;
     Information objInfo;
     StorageReference mStorageReference;
-    GridItem gItem;
     private static final String DATABASE_PATH = "images";
     Uri downloadUri;
     private byte[] thumb_byte;
+
 
     private ProgressDialog mProgressDialog;
 
@@ -59,12 +59,17 @@ public class StartQues5 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.start_ques5);
 
+
+
+
+
         p5Button1 = (Button) findViewById(R.id.p5button1);
         p5Button2 = (Button) findViewById(R.id.p5button2);
         p5Image = (ImageView) findViewById(R.id.p5image);
         p5Next = (Button) findViewById(R.id.p5next);
         mStorageReference = FirebaseStorage.getInstance().getReference();
         mStorage = FirebaseStorage.getInstance().getReference();
+
 
         objInfo = (Information) getIntent().getSerializableExtra("TIME");
 
@@ -105,11 +110,18 @@ public class StartQues5 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent p5Intent = new Intent(StartQues5.this, StartQues6.class);
+               if (!"default".equals(p5Image.getTag())) {
 
-                p5Intent.putExtra("IMAGE", objInfo);
-                startActivity(p5Intent);
-                finish();
+                   Intent p5Intent = new Intent(StartQues5.this, StartQues6.class);
+                   p5Intent.putExtra("IMAGE", objInfo);
+                   startActivity(p5Intent);
+               }
+                else {
+                   Toast.makeText(StartQues5.this , "Please Select A Photo For Your Trip", Toast.LENGTH_SHORT).show();
+
+
+                }
+
 
             }
         });
@@ -152,7 +164,9 @@ public class StartQues5 extends AppCompatActivity {
 
                 Uri resultUri = result.getUri();
 
-                Picasso.with(StartQues5.this).load(resultUri).into(p5Image);
+                Picasso.with(StartQues5.this).load(resultUri).placeholder(R.drawable.placeholder_image).into(p5Image);
+
+                p5Image.setTag("not default");
 
 
 

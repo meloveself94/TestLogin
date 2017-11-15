@@ -6,7 +6,10 @@
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:id="@+id/p14RelativeLayout"
+        android:focusableInTouchMode="true"
+        android:focusable="true">
 
     <TextView
         android:layout_width="wrap_content"
@@ -80,6 +83,8 @@
             android:hint="Torchlight, snacks, etc..."
             android:layout_below="@id/p14Content2"
             android:layout_marginTop="13dp"
+            android:gravity="top|start"
+            android:padding="7dp"
             android:id="@+id/p14EditBox2"
             />
 

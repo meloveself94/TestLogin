@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/p13RelativeLayout"
+    android:focusableInTouchMode="true"
+    android:focusable="true">
 
     <TextView
         android:layout_width="wrap_content"
@@ -67,13 +69,16 @@
 
     <EditText
         android:layout_width="wrap_content"
-        android:layout_height="30dp"
+        android:layout_height="40dp"
         android:ems="17"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/shape"
         android:id="@+id/p13EditBox1"
+        android:inputType="numberDecimal"
         android:layout_below="@id/p13Content2"
+        android:gravity="start|top"
+        android:padding="5dp"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="2dp"/>
 

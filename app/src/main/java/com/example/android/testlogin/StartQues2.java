@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -38,7 +39,7 @@ public class StartQues2 extends AppCompatActivity {
 
         mDatabase = FirebaseDatabase.getInstance().getReference("users");
 
-        spinner1 = (Spinner) findViewById(R.id.spinner1);
+        spinner1 = (Spinner) findViewById(R.id.p2Spinner1);
 
 
         final ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(StartQues2.this, android.R.layout.simple_list_item_1,
@@ -54,17 +55,12 @@ public class StartQues2 extends AppCompatActivity {
 
 
 
-
-
-
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
             }
-
-
 
 
 
@@ -82,16 +78,25 @@ public class StartQues2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Information objInfo = new Information();
-                objInfo.setP2Language(item);
+                if (item.equals("Select Language")) {
+
+                    Toast.makeText(StartQues2.this , "Please Select A Language To Your Preference", Toast.LENGTH_SHORT).show();
+                }
+
+                else {
+
+                    Information objInfo = new Information();
+                    objInfo.setP2Language(item);
 
 
-                Intent intent = new Intent(StartQues2.this , StartQues2Half.class);
-                intent.putExtra("LANGUAGE" , objInfo);
+                    Intent intent = new Intent(StartQues2.this , StartQues2Half.class);
+                    intent.putExtra("LANGUAGE" , objInfo);
 
 
-                startActivity(intent);
+                    startActivity(intent);
 
+
+                }
 
 
 

@@ -3,12 +3,17 @@ package com.example.android.testlogin;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 /**
  * Created by Soul on 9/8/2017.
@@ -23,7 +28,7 @@ public class StartQues13 extends AppCompatActivity {
     Button p13Next;
     String p13item1;
     String p13item2;
-    GridItem gItem;
+    private RelativeLayout p13RelativeLayout;
 
 
     @Override
@@ -40,6 +45,7 @@ public class StartQues13 extends AppCompatActivity {
         p13Spinner2 = (Spinner) findViewById(R.id.p13Spinner2);
         p13Next = (Button) findViewById(R.id.p13Next);
         p13EditBox1 = (EditText) findViewById(R.id.p13EditBox1);
+        p13RelativeLayout = (RelativeLayout) findViewById(R.id.p13RelativeLayout);
 
 
 
@@ -72,9 +78,6 @@ public class StartQues13 extends AppCompatActivity {
         //FOR SPINNER 2.
 
 
-
-
-
         final ArrayAdapter<String> p13Adapter2 = new ArrayAdapter<String>(StartQues13.this , android.R.layout.simple_list_item_1,
                 getResources().getStringArray(R.array.daysprepare));
 
@@ -99,6 +102,15 @@ public class StartQues13 extends AppCompatActivity {
 
         //END SPINNER 2.
 
+        p13RelativeLayout.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+                return true;
+            }
+        });
+
 
 
 
@@ -106,21 +118,38 @@ public class StartQues13 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                int box1 = Integer.parseInt(p13EditBox1.getText().toString());
+                String box1 = p13EditBox1.getText().toString();
+                int price = 0;
 
-                objInfo.setP14NoOfGuest(p13item1);
-                objInfo.setP14TimeRequired(p13item2);
-                objInfo.setP14EnterPrice(box1);
+               // int box1 = Integer.parseInt(p13EditBox1.getText().toString());
 
-                //gItem.setmPriceHere(String.valueOf(box1));
+                if (p13item1.equals("Select Number of Guest")) {
+               Toast.makeText(StartQues13.this , "Please Select A Suitable Amount of Guest That Could be Accomodated"
+                       , Toast.LENGTH_SHORT).show();
+
+                } else if (TextUtils.isEmpty(box1)) {
+                    p13EditBox1.setError("Please Let Others Know What is The Price of Your Trip Per Person");
+
+                }
+                else if (p13item2.equals("Time Required to Prepare")) {
+                Toast.makeText(StartQues13.this , "Please Select A Suitable Amount of Time Required for You to be Prepared"
+                      , Toast.LENGTH_SHORT).show();
+
+                }
+                else {
+                    price = Integer.parseInt(box1);
 
 
+                    objInfo.setP14NoOfGuest(p13item1);
+                    objInfo.setP14TimeRequired(p13item2);
+                    objInfo.setP14EnterPrice(price);
 
 
-                Intent p13Intent = new Intent(StartQues13.this , StartQues14.class);
-                p13Intent.putExtra("PRICE" , objInfo);
-                startActivity(p13Intent);
-                finish();
+                    Intent p13Intent = new Intent(StartQues13.this , StartQues14.class);
+                    p13Intent.putExtra("PRICE" , objInfo);
+                    startActivity(p13Intent);
+                }
+
 
 
             }

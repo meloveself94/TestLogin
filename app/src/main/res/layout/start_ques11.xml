@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/p11RelativeLayout"
+    android:focusableInTouchMode="true"
+    android:focusable="true">
 
     <TextView
         android:layout_width="wrap_content"
@@ -33,7 +35,7 @@
         android:ems="17"
         android:background="@drawable/shape"
         android:hint="Type Your Bio Here"
-        android:gravity="top|left"
+        android:gravity="top|start"
         android:padding="13dp"
         android:layout_below="@id/p11Content1"
         android:layout_margin="20dp"

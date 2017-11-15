@@ -38,9 +38,9 @@
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner1"
+        android:id="@+id/p2Spinner1"
         android:layout_below="@id/title2"
-        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         >
@@ -56,9 +56,9 @@
         android:textSize="25sp"
         android:textColor="#000000"
         android:id="@+id/title3"
-        android:layout_below="@id/spinner1"
+        android:layout_below="@id/p2Spinner1"
         android:layout_marginBottom="13dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="13dp"/>
 
     <TextView
@@ -68,7 +68,7 @@
         android:textSize="25sp"
         android:id="@+id/content2"
         android:layout_below="@id/title3"
-        android:layout_marginLeft="10dp"/>
+        android:layout_marginStart="10dp"/>
 
     <Button
         android:layout_width="wrap_content"

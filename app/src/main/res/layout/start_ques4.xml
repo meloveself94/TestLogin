@@ -10,7 +10,11 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:id="@+id/p4RelativeLayout"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
 
     <TextView
         android:layout_width="wrap_content"
@@ -38,12 +42,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="15"
-        android:layout_below="@id/p4content1"
         android:layout_marginTop="12dp"
         android:hint="   Enter Experience Title"
-        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
         android:id="@+id/p4editBox1"
-        />
+        android:layout_below="@+id/p4content1"
+        android:layout_alignStart="@+id/p4content1" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -111,7 +115,7 @@
         android:text="@string/fourthques3"
         android:layout_below="@id/p4title3"
         android:layout_marginTop="15dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
         android:id="@+id/p4content3"/>
 
 
@@ -121,7 +125,7 @@
             android:layout_below="@id/p4content3"
             android:ems="15"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:hint="Write Your Tagline Here"
             android:id="@+id/p4editBox2"/>
 

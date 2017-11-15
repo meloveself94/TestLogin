@@ -5,7 +5,10 @@
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:id="@+id/p12RelativeLayout"
+        android:focusableInTouchMode="true"
+        android:focusable="true">
 
 
     <TextView

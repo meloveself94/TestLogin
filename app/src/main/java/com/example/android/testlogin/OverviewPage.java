@@ -4,24 +4,22 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v4.view.MenuItemCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.text.InputType;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -32,19 +30,24 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.squareup.picasso.Picasso;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
+
 /**
  * Created by Zote's on 8/28/2017.
  */
 
-public class OverviewPage extends AppCompatActivity {
+public class OverviewPage extends AppCompatActivity implements com.borax12.materialdaterangepicker.date.DatePickerDialog.OnDateSetListener {
 
 
     private GridAdapter adapter;
 
-    private DrawerLayout mDrawerLayout;
-    private ActionBarDrawerToggle mActionBarToggle;
+
     private Toolbar mToolbar;
     ImageView chatImage;
+
+
 
     Button companionBtn;
     private RecyclerView mTripList;
@@ -54,7 +57,9 @@ public class OverviewPage extends AppCompatActivity {
     private DatabaseReference mRef;
     private FirebaseUser mCurrentUser;
 
-    private ProgressBar mProgressBar;
+    private Calendar myCalender;
+
+    //private ProgressBar mProgressBar;
 
 
     @Override
@@ -62,18 +67,22 @@ public class OverviewPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.overview_page);
 
-        mToolbar = (Toolbar) findViewById(R.id.nav_action);
+        mToolbar = findViewById(R.id.overview_action_barzz);
         setSupportActionBar(mToolbar);
 
+
+
         //For the recycler view//
-        mTripList = (RecyclerView) findViewById(R.id.my_recycler_view);
+        mTripList = findViewById(R.id.my_recycler_view);
         //mTripList.setHasFixedSize(true);
         mTripList.setLayoutManager(new LinearLayoutManager(this));
 
 
         //For Buttons to work
-        chatImage = (ImageView) findViewById(R.id.chatImage);
-        companionBtn = (Button) findViewById(R.id.companionBtn);
+        chatImage = findViewById(R.id.overview_chat_image);
+        companionBtn = findViewById(R.id.companion_btn);
+
+
 
         //For Firebase
         mCurrentUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -113,16 +122,44 @@ public class OverviewPage extends AppCompatActivity {
             }
         });
 
+         myCalender = Calendar.getInstance();
 
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
-        mActionBarToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close);
 
-        mDrawerLayout.addDrawerListener(mActionBarToggle);
-        mActionBarToggle.syncState();
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        mProgressBar = (ProgressBar) findViewById(R.id.custom_progressBar);
+
+
+        EditText datePickEdit = findViewById(R.id.overviewEditBox1);
+        datePickEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Calendar now = Calendar.getInstance();
+                com.borax12.materialdaterangepicker.date.DatePickerDialog datePickerDialog
+                        = com.borax12.materialdaterangepicker.date.DatePickerDialog.newInstance
+                        (OverviewPage.this,
+                        now.get(Calendar.YEAR),
+                        now.get(Calendar.MONTH),
+                        now.get(Calendar.DAY_OF_MONTH));
+                    datePickerDialog.setStartTitle("Start Date");
+                    datePickerDialog.setEndTitle("End Date");
+                    datePickerDialog.setAccentColor(0xFFE65100);
+                    datePickerDialog.dismissOnPause(true);
+                    datePickerDialog.show(getFragmentManager(),"Datepickerdialog");
+
+
+            }
+        });
+
+
+
+
+
+
+
+
+
+        /*mProgressBar = (ProgressBar) findViewById(R.id.custom_progressBar);
         mProgressBar.setVisibility(View.VISIBLE);
 
         Handler handler = new Handler();
@@ -135,7 +172,7 @@ public class OverviewPage extends AppCompatActivity {
 
                 }
             }, 4000);
-        }
+        }*/
 
 
     } //-------OnCreate ends here // -------
@@ -193,10 +230,28 @@ public class OverviewPage extends AppCompatActivity {
 
     }
 
+
+    @Override
+    public void onDateSet(com.borax12.materialdaterangepicker.date.DatePickerDialog view, int year,
+           int monthOfYear, int dayOfMonth, int yearEnd, int monthOfYearEnd, int dayOfMonthEnd) {
+
+        monthOfYear = monthOfYear + 1;
+        monthOfYearEnd = monthOfYearEnd + 1;
+
+
+
+
+        EditText datePickEdit = findViewById(R.id.overviewEditBox1);
+        datePickEdit.setText(String.format("%d/%d/%d ",dayOfMonth,monthOfYear,year)+
+        String.format("— %d/%d/%d",dayOfMonthEnd,monthOfYearEnd,yearEnd));
+
+
+    }
+
     public static class TripsViewHolder extends RecyclerView.ViewHolder {
 
         //View used by firebase adapter.
-        //Also made to set for onclicklistener for the recycler view items.
+        //Also made to set for onClickListener for the recycler view items.
         View mView;
 
         public TripsViewHolder(View itemView) {
@@ -232,6 +287,14 @@ public class OverviewPage extends AppCompatActivity {
 
     }
 
+    private void updateLabel() {
+        String myFormat = "dd/MM/yy"; //In which you need put here
+        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+
+        EditText datePickEdit = findViewById(R.id.overviewEditBox1);
+        datePickEdit.setText(sdf.format(myCalender.getTime()));
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         super.onOptionsItemSelected(item);
@@ -248,16 +311,12 @@ public class OverviewPage extends AppCompatActivity {
             startActivity(accountSettingsIntent);
         }
 
-        if (mActionBarToggle.onOptionsItemSelected(item)) {
-            return true;
-
-        }
 
         return super.onOptionsItemSelected(item);
     }
 
     @Override
-    public boolean onCreateOptionsMenu(final Menu menu) {
+    public boolean onCreateOptionsMenu( Menu menu) {
         MenuInflater inflater1 = getMenuInflater();
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_search, menu);
@@ -277,10 +336,20 @@ public class OverviewPage extends AppCompatActivity {
             @Override
             public boolean onQueryTextChange(String newText) {
 
+                String formattedText = newText;
 
-                Query search = mDatabaseReference.orderByChild("country").startAt(newText).endAt(newText+"\uf8ff");
+
+               if (newText.length()>=2) {
+
+                    formattedText = newText.substring(0,1).toUpperCase()
+                           + newText.substring(1).toLowerCase();
+
+               }
 
 
+                Query search = mDatabaseReference.orderByChild("country").startAt(formattedText).endAt(formattedText+"\uf8ff");
+
+                Log.d("got search dou mou?" , "Got la");
 
                 FirebaseRecyclerAdapter<CardItem, SearchViewHolder> firebaseRecyclerAdapter22
                         = new FirebaseRecyclerAdapter<CardItem, SearchViewHolder>(
@@ -296,11 +365,9 @@ public class OverviewPage extends AppCompatActivity {
                         hiViewHolder.setTitle(model.getTitle());
                         hiViewHolder.setCountry(model.getCountry());
                         hiViewHolder.setPrice("Price: $" + model.getPricePerGuest());
-
                     }
 
                 };
-
 
                 mTripList.setAdapter(firebaseRecyclerAdapter22);
 
@@ -309,7 +376,7 @@ public class OverviewPage extends AppCompatActivity {
             }
         });
 
-        return super.onCreateOptionsMenu(menu);
+        return true;
     }
 
     public static class SearchViewHolder extends RecyclerView.ViewHolder {

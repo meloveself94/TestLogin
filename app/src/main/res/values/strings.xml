@@ -144,6 +144,7 @@
 
 
     <string-array name="countries_array">
+        <item>Select Country</item>
         <item>Afghanistan</item>
         <item>Albania</item>
         <item>Algeria</item>

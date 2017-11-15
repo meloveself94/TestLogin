@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-
     android:layout_height="match_parent"
+    android:id="@+id/p6RelativeLayout"
+    android:focusableInTouchMode="true"
+    android:focusable="true"
     xmlns:tools="http://schemas.android.com/tools">
 
     <TextView
@@ -32,6 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="100sp"
         android:background="@drawable/shape"
+        android:hint="Max 500 Characters"
         android:layout_below="@id/p6Content1"
         android:maxLines="10"
         android:padding="10dp"
@@ -40,6 +43,7 @@
         android:layout_marginRight="18dp"
         android:layout_marginTop="20dp"
         android:id="@+id/p6EditText1"
+        android:gravity="top|start"
         />
 
 
@@ -52,7 +56,7 @@
         android:layout_height="wrap_content"
         android:text="Next"
         android:layout_alignParentEnd="true"
-        android:layout_marginRight="30dp"
+        android:layout_marginEnd="30dp"
         android:id="@+id/p6Next"
         android:layout_marginBottom="6dp"
         android:background="@drawable/buttshape"
@@ -96,9 +100,11 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
+        android:hint="Max 500 Characters"
         android:id="@+id/p6EditText2"
         android:maxLines="10"
-        android:padding="10dp"/>
+        android:padding="10dp"
+        android:gravity="top|start"/>
 
 
 

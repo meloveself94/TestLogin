@@ -122,6 +122,11 @@
             android:screenOrientation="portrait">
         </activity>
 
+        <activity android:name=".FunPage"
+            android:windowSoftInputMode="stateHidden"
+            android:screenOrientation="portrait">
+        </activity>
+
 
         <activity android:name=".ChatUsersActivity"
             android:windowSoftInputMode="stateHidden"

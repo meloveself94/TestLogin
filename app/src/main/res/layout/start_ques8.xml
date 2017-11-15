@@ -10,7 +10,10 @@
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:id="@+id/p8RelativeLayout"
+        android:focusableInTouchMode="true"
+        android:focusable="true">
 
 
 
@@ -46,7 +49,7 @@
         android:background="@drawable/shape"
         android:layout_below="@id/p8Content1"
         android:ems="17"
-        android:gravity="top|left"
+        android:gravity="top|start"
         android:layout_marginLeft="17dp"
         android:layout_marginRight="17dp"
         android:layout_marginTop="20dp"
@@ -58,7 +61,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginEnd="20dp"
         android:text="Next"
         android:textColor="#FFFFFF"
         android:id="@+id/p8Next"

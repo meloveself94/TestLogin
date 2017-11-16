@@ -18,10 +18,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.borax12.materialdaterangepicker.date.DatePickerDialog;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -38,7 +40,7 @@ import java.util.Locale;
  * Created by Zote's on 8/28/2017.
  */
 
-public class OverviewPage extends AppCompatActivity implements com.borax12.materialdaterangepicker.date.DatePickerDialog.OnDateSetListener {
+public class OverviewPage extends AppCompatActivity implements DatePickerDialog.OnDateSetListener{
 
 
     private GridAdapter adapter;
@@ -47,7 +49,18 @@ public class OverviewPage extends AppCompatActivity implements com.borax12.mater
     private Toolbar mToolbar;
     ImageView chatImage;
 
+    private int year_x;
+    private int month_x;
+    private int day_x;
 
+    private int year_y;
+    private int month_y;
+    private int day_y;
+    private int mm;
+
+    private int saveDay;
+    private int saveMonth;
+    private int saveYear;
 
     Button companionBtn;
     private RecyclerView mTripList;
@@ -125,25 +138,37 @@ public class OverviewPage extends AppCompatActivity implements com.borax12.mater
          myCalender = Calendar.getInstance();
 
 
-
-
-
-
         EditText datePickEdit = findViewById(R.id.overviewEditBox1);
+        datePickEdit.setHintTextColor(0xFFFFFFFF);
         datePickEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+
+
                 Calendar now = Calendar.getInstance();
+
                 com.borax12.materialdaterangepicker.date.DatePickerDialog datePickerDialog
                         = com.borax12.materialdaterangepicker.date.DatePickerDialog.newInstance
                         (OverviewPage.this,
                         now.get(Calendar.YEAR),
                         now.get(Calendar.MONTH),
                         now.get(Calendar.DAY_OF_MONTH));
+
                     datePickerDialog.setStartTitle("Start Date");
                     datePickerDialog.setEndTitle("End Date");
                     datePickerDialog.setAccentColor(0xFFE65100);
+                    datePickerDialog.setMinDate(Calendar.getInstance());
+
+
+                //Maximum date setting part
+
+
+                    now.add(Calendar.DAY_OF_MONTH, 180);
+                    
+                    datePickerDialog.setAutoHighlight(true);
+                    datePickerDialog.setMaxDate(now);
+
                     datePickerDialog.dismissOnPause(true);
                     datePickerDialog.show(getFragmentManager(),"Datepickerdialog");
 
@@ -227,7 +252,6 @@ public class OverviewPage extends AppCompatActivity implements com.borax12.mater
 
         mTripList.setAdapter(firebaseRecyclerAdapter);
 
-
     }
 
 
@@ -239,14 +263,23 @@ public class OverviewPage extends AppCompatActivity implements com.borax12.mater
         monthOfYearEnd = monthOfYearEnd + 1;
 
 
-
+         saveDay = dayOfMonth;
+         saveMonth = monthOfYear;
+         saveYear = year;
 
         EditText datePickEdit = findViewById(R.id.overviewEditBox1);
         datePickEdit.setText(String.format("%d/%d/%d ",dayOfMonth,monthOfYear,year)+
         String.format("— %d/%d/%d",dayOfMonthEnd,monthOfYearEnd,yearEnd));
 
+    }
+
+    public void onDateChanged(DatePicker view, int years, int monthOfYears, int dayOfMonths) {
+
 
     }
+
+
+
 
     public static class TripsViewHolder extends RecyclerView.ViewHolder {
 

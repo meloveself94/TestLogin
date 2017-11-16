@@ -263,9 +263,7 @@ public class OverviewPage extends AppCompatActivity implements DatePickerDialog.
         monthOfYearEnd = monthOfYearEnd + 1;
 
 
-         saveDay = dayOfMonth;
-         saveMonth = monthOfYear;
-         saveYear = year;
+
 
         EditText datePickEdit = findViewById(R.id.overviewEditBox1);
         datePickEdit.setText(String.format("%d/%d/%d ",dayOfMonth,monthOfYear,year)+

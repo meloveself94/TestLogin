@@ -122,6 +122,12 @@
             android:screenOrientation="portrait">
         </activity>
 
+
+        <activity android:name=".EditTripActivity"
+            android:windowSoftInputMode="stateHidden"
+            android:screenOrientation="portrait">
+        </activity>
+
         <activity android:name=".FunPage"
             android:windowSoftInputMode="stateHidden"
             android:screenOrientation="portrait">

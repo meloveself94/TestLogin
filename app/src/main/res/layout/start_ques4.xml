@@ -34,7 +34,7 @@
         android:layout_below="@id/p4title1"
         android:id="@+id/p4content1"
         android:layout_marginTop="8dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
         android:layout_marginRight="10dp"
         />
 
@@ -59,7 +59,7 @@
         android:layout_below="@id/p4editBox1"
         android:layout_marginTop="25dp"
         android:layout_marginBottom="10dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
         android:id="@+id/p4title2"/>
 
     <TextView
@@ -70,14 +70,14 @@
         android:layout_below="@id/p4title2"
         android:id="@+id/p4content2"
         android:layout_marginTop="1dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
         android:layout_marginRight="10dp"/>
 
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/p4Spinner1"
-        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="21dp"
 
         android:layout_below="@+id/p4content2">
@@ -91,7 +91,7 @@
         android:layout_toRightOf="@id/p4Spinner1"
         android:layout_below="@id/p4content2"
         android:layout_marginTop="21dp"
-        android:layout_marginLeft="50dp">
+        android:layout_marginStart="50dp">
 
 
     </Spinner>

@@ -10,10 +10,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowFullscreen">true</item>
 
-        <item name="android:textColorHint">@color/secondary_text</item>
-        <item name="colorControlNormal">#FFFFFF</item>
-        <item name="colorControlActivated">#ff0000</item>
-        <item name="colorControlHighlight">#FFFFFF</item>
+
 
 
     </style>

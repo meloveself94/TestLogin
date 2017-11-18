@@ -3,6 +3,7 @@ package com.example.android.testlogin;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputFilter;
 import android.text.TextUtils;
 import android.view.MotionEvent;
 import android.view.View;
@@ -33,6 +34,7 @@ public class StartQues4 extends AppCompatActivity {
 
     Information objInfo;
 
+    int maxLength = 20;
 
 
 
@@ -52,6 +54,7 @@ public class StartQues4 extends AppCompatActivity {
 
         p4Spinner1 = (Spinner) findViewById(R.id.p4Spinner1);
 
+        p4EditBox2.setFilters(new InputFilter[] {new InputFilter.LengthFilter(maxLength)});
 
         //Here starts Spinner 1 start Time.//
 

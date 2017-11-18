@@ -18,7 +18,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -32,15 +31,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.squareup.picasso.Picasso;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Locale;
 
 /**
  * Created by Zote's on 8/28/2017.
  */
 
-public class OverviewPage extends AppCompatActivity implements DatePickerDialog.OnDateSetListener{
+public class OverviewPage extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, DatePickerDialog.OnDateChangedListener{
 
 
     private GridAdapter adapter;
@@ -148,8 +145,8 @@ public class OverviewPage extends AppCompatActivity implements DatePickerDialog.
 
                 Calendar now = Calendar.getInstance();
 
-                com.borax12.materialdaterangepicker.date.DatePickerDialog datePickerDialog
-                        = com.borax12.materialdaterangepicker.date.DatePickerDialog.newInstance
+                final DatePickerDialog datePickerDialog
+                        = DatePickerDialog.newInstance
                         (OverviewPage.this,
                         now.get(Calendar.YEAR),
                         now.get(Calendar.MONTH),
@@ -159,10 +156,9 @@ public class OverviewPage extends AppCompatActivity implements DatePickerDialog.
                     datePickerDialog.setEndTitle("End Date");
                     datePickerDialog.setAccentColor(0xFFE65100);
                     datePickerDialog.setMinDate(Calendar.getInstance());
-
+                    datePickerDialog.setThemeDark(true);
 
                 //Maximum date setting part
-
 
                     now.add(Calendar.DAY_OF_MONTH, 180);
                     
@@ -175,12 +171,6 @@ public class OverviewPage extends AppCompatActivity implements DatePickerDialog.
 
             }
         });
-
-
-
-
-
-
 
 
 
@@ -256,11 +246,16 @@ public class OverviewPage extends AppCompatActivity implements DatePickerDialog.
 
 
     @Override
-    public void onDateSet(com.borax12.materialdaterangepicker.date.DatePickerDialog view, int year,
+    public void onDateSet(DatePickerDialog view, int year,
            int monthOfYear, int dayOfMonth, int yearEnd, int monthOfYearEnd, int dayOfMonthEnd) {
 
         monthOfYear = monthOfYear + 1;
         monthOfYearEnd = monthOfYearEnd + 1;
+
+        year_y = year;
+        month_y = monthOfYear;
+        day_y = dayOfMonth;
+
 
 
 
@@ -271,12 +266,12 @@ public class OverviewPage extends AppCompatActivity implements DatePickerDialog.
 
     }
 
-    public void onDateChanged(DatePicker view, int years, int monthOfYears, int dayOfMonths) {
 
+
+    @Override
+    public void onDateChanged() {
 
     }
-
-
 
 
     public static class TripsViewHolder extends RecyclerView.ViewHolder {
@@ -316,14 +311,6 @@ public class OverviewPage extends AppCompatActivity implements DatePickerDialog.
         }
 
 
-    }
-
-    private void updateLabel() {
-        String myFormat = "dd/MM/yy"; //In which you need put here
-        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
-
-        EditText datePickEdit = findViewById(R.id.overviewEditBox1);
-        datePickEdit.setText(sdf.format(myCalender.getTime()));
     }
 
     @Override
@@ -396,6 +383,19 @@ public class OverviewPage extends AppCompatActivity implements DatePickerDialog.
                         hiViewHolder.setTitle(model.getTitle());
                         hiViewHolder.setCountry(model.getCountry());
                         hiViewHolder.setPrice("Price: $" + model.getPricePerGuest());
+
+                        final String key = getRef(position).getKey();
+
+                        hiViewHolder.hiView.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+
+                                Intent tripProfileIntent = new Intent(OverviewPage.this, EachTripActivity.class);
+                                tripProfileIntent.putExtra("pushKey", key);
+                                startActivity(tripProfileIntent);
+
+                            }
+                        });
                     }
 
                 };

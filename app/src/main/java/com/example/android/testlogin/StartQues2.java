@@ -63,7 +63,6 @@ public class StartQues2 extends AppCompatActivity {
             }
 
 
-
         });
 
 

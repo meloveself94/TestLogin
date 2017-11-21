@@ -104,13 +104,7 @@ public class StartQues15 extends AppCompatActivity {
 
 
 
-
-
                     //Set all these data to the root of the Database
-
-
-
-
 
                     mDatabase.push().setValue(dataMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override

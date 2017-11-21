@@ -1,0 +1,611 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/placeholder_image"
+        android:scaleType="centerCrop"
+        android:id="@+id/trip_profile_image"/>
+
+    <TextView
+        android:id="@+id/trip_profile_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/trip_profile_image"
+        android:textSize="27sp"
+        android:textColor="#000000"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="Wiwa wiwa" />
+
+    <TextView
+        android:id="@+id/trip_profile_tagline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/trip_profile_title"
+        android:textSize="18sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="4dp"
+        android:text="Let's go on an adventure" />
+
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:src="@drawable/defaultavatar"
+        android:layout_below="@id/trip_profile_tagline"
+        android:layout_marginTop="18dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/trip_profile_circle_pic"/>
+
+        <Button
+            android:layout_width="78dp"
+            android:layout_height="35dp"
+            android:layout_below="@id/trip_profile_circle_pic"
+            android:layout_marginTop="22dp"
+            android:layout_marginStart="15dp"
+            android:text="Edit Post"
+            android:textColor="#E67F5C"
+            android:textAllCaps="false"
+            android:background="@drawable/edit_trip_button"
+            android:elevation="5dp"
+            android:id="@+id/trip_profile_edit_btn"/>
+
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="Eugene Tang"
+         android:layout_toEndOf="@id/trip_profile_circle_pic"
+         android:layout_alignTop="@id/trip_profile_circle_pic"
+
+         android:layout_marginTop="18dp"
+         android:textSize="18sp"
+         android:layout_marginLeft="18dp"
+         android:layout_marginStart="18dp"
+         android:id="@+id/trip_by_who"/>
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/chat_icon"
+            android:layout_alignTop="@+id/trip_by_who"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="50dp"
+            android:id="@+id/chat_icon"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contact Host"
+            android:textStyle="italic"
+            android:layout_alignBaseline="@+id/trip_nothing_geh"
+            android:layout_alignBottom="@+id/trip_nothing_geh"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="28dp"
+
+             />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Eugene Tang"
+            android:layout_toRightOf="@id/trip_profile_circle_pic"
+            android:layout_below="@id/trip_by_who"
+            android:layout_marginTop="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginStart="18dp"
+            android:id="@+id/trip_nothing_geh"
+            android:visibility="invisible"/>
+
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="Details"
+         android:layout_below="@id/trip_profile_edit_btn"
+         android:layout_marginTop="18dp"
+         android:textSize="20sp"
+         android:layout_centerHorizontal="true"
+         android:textColor="#000000"
+         android:id="@+id/useless_details"/>
+
+      <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#1A237E"
+          android:layout_below="@id/useless_details"
+          android:layout_marginTop="5dp"
+          android:id="@+id/trip_profile_line"/>
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Travel up the high mountain of sand"
+          android:id="@+id/trip_profile_activity"
+          android:layout_below="@id/trip_profile_line"
+          android:layout_marginTop="15dp"
+          android:layout_marginLeft="8dp"
+          android:layout_marginStart="8dp"
+          android:layout_marginEnd="8dp"
+          android:layout_marginRight="8dp"
+          android:textSize="18dp"
+          android:layout_centerHorizontal="true"
+          android:maxLines="5"
+          />
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Mamak Burani ABC Bandar Sungai Long"
+          android:maxLines="5"
+          android:layout_below="@id/trip_profile_activity"
+          android:layout_marginTop="22dp"
+          android:layout_alignEnd="@+id/trip_by_who"
+          android:id="@+id/trip_profile_place"
+          android:textSize="16sp"
+          android:padding="10dp"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="05:00 am"
+            android:maxLines="10"
+            android:layout_toRightOf="@id/trip_profile_place"
+            android:layout_marginStart="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_below="@id/trip_profile_activity"
+            android:layout_marginTop="28dp"
+            android:textSize="15sp"
+            android:id="@+id/trip_profile_timeStart"
+             />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="to "
+            android:layout_below="@+id/trip_profile_timeStart"
+            android:layout_toRightOf="@id/trip_profile_place"
+            android:layout_marginTop="4dp"
+            android:textSize="15sp"
+            android:layout_marginStart="70dp"
+            android:layout_marginLeft="70dp"
+            android:id="@+id/useless_to"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="21:00 pm"
+            android:maxLines="10"
+            android:layout_toRightOf="@id/trip_profile_place"
+            android:layout_marginStart="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_below="@id/useless_to"
+            android:layout_marginTop="4dp"
+            android:id="@+id/trip_profile_timeEnd"
+            android:textSize="15sp"
+            />
+
+        <Button
+            android:layout_width="33dp"
+            android:layout_height="33dp"
+            android:text="+"
+            android:background="@drawable/addminus"
+            android:textColor="#FFFFFF"
+            android:id="@+id/trip_profile_add_btn"
+            android:layout_below="@id/trip_profile_place"
+            android:layout_marginTop="25dp"
+
+            android:layout_marginStart="40dp"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="40dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0 Guest"
+            android:textSize="16sp"
+            android:layout_below="@id/trip_profile_add_btn"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="27dp"
+            android:layout_marginLeft="27dp"
+            android:id="@+id/profile_trip_guest_count"/>
+
+        <Button
+            android:layout_width="33dp"
+            android:layout_height="33dp"
+            android:text="-"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:background="@drawable/addminus"
+            android:textColor="#FFFFFF"
+            android:id="@+id/trip_profile_minus_btn"
+            android:layout_below="@id/profile_trip_guest_count"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Price: $75"
+            android:layout_below="@id/trip_profile_timeEnd"
+            android:layout_alignParentRight="true"
+            android:textColor="#000000"
+            android:layout_alignStart="@id/trip_profile_timeStart"
+            android:layout_marginTop="35dp"
+            android:textSize="18sp"
+            android:id="@+id/trip_profile_price"/>
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:text="Book Now"
+            android:textAllCaps="false"
+            android:textSize="17sp"
+            android:background="@drawable/buttshape"
+            android:layout_below="@id/trip_profile_price"
+            android:layout_alignStart="@+id/trip_profile_price"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="10dp"
+            android:textColor="#FFFFFF"
+            android:id="@+id/trip_profile_book_button"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="*4 Maximum guests allowed*"
+            android:layout_below="@id/trip_profile_minus_btn"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="12dp"
+            android:id="@+id/trip_profile_guest_max"
+            android:textStyle="italic"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/trip_profile_guest_max"
+            android:text="Meeting Location:"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="15dp"
+            android:textSize="16sp"
+            android:id="@+id/useless_meeting"
+            android:layout_marginTop="33dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Paradigm Hotel "
+            android:maxLines="10"
+            android:textSize="15sp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@id/useless_meeting"
+            android:id="@+id/trip_profile_meeting_location"
+            android:textColor="#000000"
+            android:layout_marginEnd="15dp"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="124 Street, Jason Avenue"
+            android:maxLines="10"
+            android:textSize="15sp"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/trip_profile_meeting_location"
+            android:id="@+id/trip_profile_meeting_street"
+            android:textColor="#000000"
+            android:layout_marginEnd="15dp"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Penstate Town"
+            android:maxLines="10"
+            android:textSize="15sp"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/trip_profile_meeting_street"
+            android:id="@+id/trip_profile_meeting_city"
+            android:textColor="#000000"
+            android:layout_marginEnd="15dp"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Washington DC"
+            android:maxLines="10"
+            android:textSize="15sp"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/trip_profile_meeting_city"
+            android:id="@+id/trip_profile_meeting_state"
+            android:textColor="#000000"
+            android:layout_marginEnd="15dp"
+            />
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="48900"
+            android:maxLines="10"
+            android:textSize="15sp"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/trip_profile_meeting_state"
+            android:id="@+id/trip_profile_meeting_zip"
+            android:textColor="#000000"
+            android:layout_marginEnd="15dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="India"
+            android:maxLines="10"
+            android:textSize="15sp"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/trip_profile_meeting_zip"
+            android:id="@+id/trip_profile_meeting_country"
+            android:textColor="#000000"
+            android:layout_marginEnd="15dp"
+            />
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/trip_profile_meeting_country"
+            android:text="What we'll provide:"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="15dp"
+            android:textSize="16sp"
+            android:id="@+id/useless_provide"
+            android:layout_marginTop="28dp"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="We provide two bottles of water each day, an umbrella and some snacks in case our companions got hungry."
+            android:maxLines="20"
+            android:textSize="15sp"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:textColor="#000000"
+            android:layout_alignStart="@id/useless_provide"
+            android:layout_below="@id/useless_provide"
+            android:id="@+id/trip_profile_provide"
+            android:layout_marginRight="8dp"
+            android:layout_marginEnd="8dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/trip_profile_provide"
+            android:text="What else should guests know:"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="15dp"
+            android:textSize="16sp"
+            android:id="@+id/useless_guest_know"
+            android:layout_marginTop="22dp"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Please bring your own camera, sunscreen, towels and additional water bottles to hydrate yourselves."
+            android:maxLines="20"
+            android:textSize="15sp"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:textColor="#000000"
+            android:layout_alignStart="@id/useless_provide"
+            android:layout_below="@id/useless_guest_know"
+            android:id="@+id/trip_profile_guest_know"
+            android:layout_marginRight="8dp"
+            android:layout_marginEnd="8dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/trip_profile_guest_know"
+            android:text="Guest basic requirements:"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="15dp"
+            android:textSize="16sp"
+            android:id="@+id/useless_requirements"
+            android:layout_marginTop="22dp"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No pressure on guests but hopefully guest could take all the rest he/she needs and hike up the sand mountain fully to enjoy thespectacular view"
+            android:maxLines="20"
+            android:textSize="15sp"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:textColor="#000000"
+            android:layout_below="@id/useless_requirements"
+            android:id="@+id/trip_profile_basic_requirements"
+            android:layout_alignStart="@id/useless_provide"
+            android:layout_marginRight="8dp"
+            android:layout_marginEnd="8dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/trip_profile_basic_requirements"
+            android:text="Guest extra requirements:"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="15dp"
+            android:textSize="16sp"
+            android:id="@+id/useless_extra_requirements"
+            android:layout_marginTop="22dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Suggestions for guests to wear long track pants and suit to avoid any bites from insects or unnecessary disturbance from surrounding area."
+            android:maxLines="20"
+            android:textSize="15sp"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:textColor="#000000"
+            android:layout_below="@id/useless_extra_requirements"
+            android:id="@+id/trip_profile_extra_requirements"
+            android:layout_marginRight="8dp"
+            android:layout_alignStart="@id/useless_provide"
+            android:layout_marginEnd="8dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/trip_profile_extra_requirements"
+            android:text="Detail understanding:"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="15dp"
+            android:textSize="16sp"
+            android:id="@+id/useless_detail_information"
+            android:layout_marginTop="22dp"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Penang is famous for it's hawker food, cultural centre and pretty ladies. Night view is very nice by lim guan eng too yo."
+            android:maxLines="20"
+            android:textSize="15sp"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:textColor="#000000"
+            android:layout_alignStart="@id/useless_provide"
+            android:layout_below="@id/useless_detail_information"
+            android:id="@+id/trip_profile_detail_information"
+            android:layout_marginRight="8dp"
+            android:layout_marginEnd="8dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/trip_profile_detail_information"
+            android:text="Packing Suggestions:"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="15dp"
+            android:textSize="16sp"
+            android:id="@+id/useless_packing"
+            android:layout_marginTop="22dp"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bring more water botles, towels, extra shirt to change, mosquito repellent and maybe torch light and lighter."
+            android:maxLines="20"
+            android:textSize="15sp"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:textColor="#000000"
+            android:layout_below="@id/useless_packing"
+            android:id="@+id/trip_profile_packing"
+            android:layout_marginRight="8dp"
+            android:layout_alignStart="@id/useless_provide"
+            android:layout_marginEnd="8dp"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="About the Host"
+            android:layout_below="@id/trip_profile_packing"
+            android:layout_marginTop="18dp"
+            android:textSize="20sp"
+            android:layout_centerHorizontal="true"
+            android:textColor="#000000"
+            android:id="@+id/useless_about_host"/>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#1A237E"
+            android:layout_below="@id/useless_about_host"
+            android:layout_marginTop="5dp"
+            android:id="@+id/trip_profile_line2"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/useless_about_host"
+            android:text="Host's bio:"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="15dp"
+            android:textSize="16sp"
+            android:id="@+id/useless_bio"
+            android:layout_marginTop="22dp"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="I like to interact with my guests to know them better so that we could discuss about our trip preferences to avoid any dislikes or disagreement in the journey. I would like to make my guests feel as if they are true locals to experience our culture."
+            android:maxLines="20"
+            android:textSize="15sp"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:textColor="#000000"
+            android:layout_alignStart="@id/useless_provide"
+            android:layout_below="@id/useless_bio"
+            android:id="@+id/trip_profile_bio"
+            android:layout_marginRight="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="15dp"
+            />
+
+
+    </RelativeLayout>
+
+
+</ScrollView>

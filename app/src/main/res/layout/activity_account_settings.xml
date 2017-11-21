@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:src="@drawable/defaultavatar"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:id="@+id/account_image"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Display Name"
+        android:textColor="#FFFFFF"
+        android:textSize="30dp"
+        android:layout_below="@id/account_image"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:id="@+id/display_name"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Hi there, I'm using Chatty"
+        android:textColor="#FFFFFF"
+        android:textSize="16dp"
+        android:layout_marginTop="15dp"
+        android:id="@+id/account_status"
+        android:layout_below="@+id/display_name"
+        android:layout_centerHorizontal="true"
+        />
+
+
+
+    <Button
+        android:id="@+id/change_image"
+        android:layout_width="wrap_content"
+        android:layout_height="57dp"
+        android:text="Change Profile Picture"
+        android:textAllCaps="false"
+        android:backgroundTint="@color/colorAccent"
+        android:textColor="#FFFFFF"
+        android:textSize="18dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="118dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:padding="12dp"/>
+
+    <Button
+        android:id="@+id/change_status"
+        android:layout_width="wrap_content"
+        android:layout_height="57dp"
+        android:text="Change Status"
+        android:textSize="18dp"
+        android:backgroundTint="#FFFFFF"
+        android:layout_alignParentBottom="true"
+        android:textColor="@color/colorPrimary"
+        android:textAllCaps="false"
+        android:padding="12dp"
+        android:layout_marginBottom="45dp"
+        android:layout_centerVertical="true"
+        android:layout_alignRight="@+id/change_image"
+        android:layout_alignEnd="@+id/change_image"
+        android:layout_alignLeft="@+id/change_image"
+        android:layout_alignStart="@+id/change_image" />
+
+
+
+
+</RelativeLayout>

@@ -1,0 +1,674 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <include layout="@layout/app_bar_layout"
+        android:id="@+id/edit_trip_bar" />
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    <RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:focusableInTouchMode="true"
+    android:focusable="true"
+    android:descendantFocusability="beforeDescendants">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Trip Language"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="25dp"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:layout_alignParentStart="true"
+        android:id="@+id/edit_language"
+        />
+
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_language"
+        android:layout_marginStart="10dp"
+        android:background="@null"
+        android:layout_marginTop="12dp"
+        android:layout_alignStart="@id/edit_language"
+        android:id="@+id/edit_language_spinner"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Type of Trip"
+        android:textSize="18sp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        android:id="@+id/edit_trip_type"
+        android:textColor="#000000"/>
+
+
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/edit_trip_type_spinner"
+        android:layout_below="@id/edit_trip_type"
+        android:background="@null"
+        android:layout_marginTop="12dp"
+        android:layout_alignStart="@id/edit_trip_type"
+        android:layout_marginEnd="5dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Trip Title"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:layout_below="@id/edit_language_spinner"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="40dp"
+        android:textStyle="bold"
+        android:layout_marginStart="45dp"
+        android:id="@+id/edit_title"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_title"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:maxLines="5"
+        android:id="@+id/edit_title_box"
+        android:background="@drawable/edit_page_shape"
+
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Trip Start Time"
+        android:textSize="18sp"
+        android:id="@+id/edit_trip_start_time"
+        android:textColor="#000000"
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_below="@id/edit_title_box"
+
+         />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_trip_start_time"
+        android:layout_marginTop="12dp"
+        android:layout_alignStart="@id/edit_trip_start_time"
+        android:background="@null"
+        android:layout_marginStart="5dp"
+        android:id="@+id/edit_trip_start_spinner"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Trip End Time"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="15dp"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:layout_below="@id/edit_title_box"
+        android:layout_marginTop="25dp"
+        android:id="@+id/edit_trip_end_time"/>
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/edit_trip_end_spinner"
+        android:layout_alignStart="@id/edit_trip_end_time"
+        android:layout_marginEnd="5dp"
+        android:layout_below="@id/edit_trip_end_time"
+        android:background="@null"
+        android:layout_marginTop="12dp"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Trip Tagline"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:layout_below="@id/edit_trip_start_spinner"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="45dp"
+        android:textStyle="bold"
+        android:id="@+id/edit_tagline"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_tagline"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:maxLines="5"
+        android:background="@drawable/edit_page_shape"
+        android:id="@+id/edit_tagline_box" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mention What You'll Do"
+        android:id="@+id/edit_activity"
+        android:textSize="18dp"
+        android:textColor="#000000"
+        android:layout_below="@id/edit_tagline_box"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="45dp"
+        android:textStyle="bold"
+        android:layout_marginTop="25dp"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_activity"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:maxLines="10"
+        android:background="@drawable/edit_page_shape"
+        android:id="@+id/edit_activity_box"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mention Where You'll Be Visiting"
+        android:id="@+id/edit_place"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:layout_below="@id/edit_activity_box"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="45dp"
+        android:textStyle="bold"
+        android:layout_marginTop="25dp"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_place"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:maxLines="10"
+        android:background="@drawable/edit_page_shape"
+        android:id="@+id/edit_place_box"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Location Name"
+        android:id="@+id/edit_location_name"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:layout_below="@id/edit_place_box"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="25dp"
+        android:textStyle="bold"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_location_name"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:maxLines="10"
+        android:background="@drawable/edit_page_shape"
+        android:id="@+id/edit_location_name_box"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Country"
+        android:id="@+id/edit_country"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/edit_location_name_box"
+        android:layout_alignStart="@id/edit_location_name"
+
+         />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_country"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="5dp"
+        android:layout_alignStart="@id/edit_country"
+        android:background="@null"
+        android:id="@+id/edit_trip_country_spinner"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Street Address"
+        android:id="@+id/edit_trip_street_address"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:layout_below="@id/edit_trip_country_spinner"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="45dp"
+        android:textStyle="bold"
+        android:layout_marginTop="45dp"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_trip_street_address"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:maxLines="10"
+        android:background="@drawable/edit_page_shape"
+        android:id="@+id/edit_trip_street_address_box"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Unit No"
+        android:id="@+id/edit_trip_unit_no"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:layout_below="@id/edit_trip_street_address_box"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="25dp"
+        android:textStyle="bold"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_trip_unit_no"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:maxLines="10"
+        android:background="@drawable/edit_page_shape"
+        android:id="@+id/edit_trip_unit_no_box"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="City"
+        android:id="@+id/edit_trip_city"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:layout_below="@id/edit_trip_unit_no_box"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="25dp"
+        android:textStyle="bold"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_trip_city"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:maxLines="10"
+        android:background="@drawable/edit_page_shape"
+        android:id="@+id/edit_trip_city_box"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="State"
+        android:id="@+id/edit_trip_state"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:layout_below="@id/edit_trip_city_box"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="45dp"
+        android:textStyle="bold"
+        android:layout_marginTop="25dp"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_trip_state"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:maxLines="10"
+        android:background="@drawable/edit_page_shape"
+        android:id="@+id/edit_trip_state_box"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zip Code"
+        android:id="@+id/edit_trip_zip"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:layout_below="@id/edit_trip_state_box"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="45dp"
+        android:textStyle="bold"
+        android:layout_marginTop="25dp"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_trip_zip"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:maxLines="10"
+        android:id="@+id/edit_trip_zip_box"
+        android:background="@drawable/edit_page_shape"
+        android:inputType="number"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Confirm What You'll Provide"
+        android:id="@+id/edit_trip_provide"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:layout_below="@id/edit_trip_zip_box"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="25dp"
+        android:textStyle="bold"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_trip_provide"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:maxLines="10"
+        android:background="@drawable/edit_page_shape"
+        android:id="@+id/edit_trip_provide_box"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="What Else Should Guests Know"
+        android:id="@+id/edit_trip_extra_info"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:layout_below="@id/edit_trip_provide_box"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="25dp"
+        android:textStyle="bold"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_trip_extra_info"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:maxLines="10"
+        android:id="@+id/edit_trip_extra_info_box"
+        android:background="@drawable/edit_page_shape"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Your Bio"
+        android:id="@+id/edit_trip_bio"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:layout_below="@id/edit_trip_extra_info_box"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="25dp"
+        android:textStyle="bold"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_trip_bio"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:maxLines="10"
+        android:id="@+id/edit_trip_bio_box"
+        android:background="@drawable/edit_page_shape"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Your Guests Requirements"
+        android:id="@+id/edit_basic_req"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:layout_below="@id/edit_trip_bio_box"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="25dp"
+        android:textStyle="bold"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_basic_req"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:maxLines="10"
+        android:id="@+id/edit_trip_basic_req_box"
+        android:background="@drawable/edit_page_shape"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Your Guests Extra Requirements"
+        android:id="@+id/edit_trip_extra_req"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:layout_below="@id/edit_trip_basic_req_box"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="25dp"
+        android:textStyle="bold"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_trip_extra_req"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:maxLines="10"
+        android:background="@drawable/edit_page_shape"
+        android:id="@+id/edit_trip_extra_req_box"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Price Per Guest"
+        android:id="@+id/edit_trip_price"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:layout_below="@id/edit_trip_extra_req_box"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="25dp"
+        android:textStyle="bold"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edit_trip_price_box"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_below="@id/edit_trip_price"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/edit_page_shape"
+        android:inputType="numberDecimal"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Max Group Size"
+        android:id="@+id/edit_trip_size"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:layout_below="@id/edit_trip_price_box"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="20dp"
+        />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_trip_size"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="5dp"
+        android:background="@null"
+        android:layout_alignStart="@id/edit_trip_size"
+        android:id="@+id/edit_trip_size_spinner"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Time Required to Prepare"
+        android:id="@+id/edit_trip_prepare"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:layout_below="@id/edit_trip_size_spinner"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="30dp"
+         />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_trip_prepare"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="5dp"
+        android:layout_alignStart="@id/edit_trip_prepare"
+        android:background="@null"
+        android:id="@+id/edit_trip_prepare_spinner"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Provide Guests Some Context"
+        android:id="@+id/edit_trip_context"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:layout_below="@id/edit_trip_prepare_spinner"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="45dp"
+        android:textStyle="bold"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_trip_context"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:maxLines="10"
+        android:background="@drawable/edit_page_shape"
+        android:id="@+id/edit_trip_context_box"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Guests Packing List"
+        android:id="@+id/edit_trip_packing_list"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:layout_below="@id/edit_trip_context_box"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="25dp"
+        android:textStyle="bold"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_trip_packing_list"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:maxLines="10"
+        android:background="@drawable/edit_page_shape"
+        android:id="@+id/edit_trip_packing_list_box"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_trip_packing_list_box"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="20dp"
+        android:text="Save"
+        android:background="@drawable/buttshape"
+        android:id="@+id/edit_trip_save_btn"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"/>
+
+
+    </RelativeLayout>
+
+
+    </ScrollView>
+
+</LinearLayout>
+

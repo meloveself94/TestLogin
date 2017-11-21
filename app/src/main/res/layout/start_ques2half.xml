@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Which type of experience will you host?"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:layout_margin="20dp"
+        android:textSize="30sp"
+        android:id="@+id/p2halftitle"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose the category that best describes your experience. Add a second, if you think it fits into another category."
+        android:layout_below="@id/p2halftitle"
+        android:id="@+id/p2halfcontent"
+        android:textSize="25sp"
+        android:layout_margin="10dp"/>
+
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/p2halfspinner"
+        android:layout_below="@id/p2halfcontent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="5dp"
+        />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:id="@+id/p2halfbutton1"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="28dp"
+        android:background="@drawable/buttshape"
+        android:textColor="#FFFFFF"
+        android:textAllCaps="false"/>
+
+
+
+</RelativeLayout>

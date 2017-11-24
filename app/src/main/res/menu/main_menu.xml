@@ -10,4 +10,9 @@
         android:id="@+id/account_settings"
         android:title="Account Settings"
         app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/created_trips"
+        android:title="Your Hosting Trips"
+        app:showAsAction="never"/>
 </menu>

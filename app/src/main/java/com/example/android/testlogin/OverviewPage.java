@@ -290,7 +290,10 @@ public class OverviewPage extends AppCompatActivity implements DatePickerDialog.
         public void setUserImage(String thumbPhoto, Context ctx) {
             ImageView tripImageView = mView.findViewById(R.id.trip_image);
 
-            Picasso.with(ctx).load(thumbPhoto).placeholder(R.drawable.defaultavatar).into(tripImageView);
+            Picasso.with(ctx).load(thumbPhoto).placeholder(R.drawable.placeholder_image).into(tripImageView);
+
+            tripImageView.setAdjustViewBounds(true);
+            tripImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         }
 
         public void setTitle(String title) {
@@ -327,6 +330,12 @@ public class OverviewPage extends AppCompatActivity implements DatePickerDialog.
 
             Intent accountSettingsIntent = new Intent(OverviewPage.this, AccountSettings.class);
             startActivity(accountSettingsIntent);
+        }
+
+        if (item.getItemId() == R.id.created_trips) {
+
+            Intent createdTripIntent = new Intent(OverviewPage.this , YourHostingTripPage.class);
+            startActivity(createdTripIntent);
         }
 
 
@@ -429,7 +438,7 @@ public class OverviewPage extends AppCompatActivity implements DatePickerDialog.
         public void setPicture(String thumbPhoto, Context ctx) {
             ImageView tripImageView = hiView.findViewById(R.id.trip_image);
 
-            Picasso.with(ctx).load(thumbPhoto).placeholder(R.drawable.defaultavatar).into(tripImageView);
+            Picasso.with(ctx).load(thumbPhoto).placeholder(R.drawable.placeholder_image).into(tripImageView);
         }
 
         public void setTitle(String title) {

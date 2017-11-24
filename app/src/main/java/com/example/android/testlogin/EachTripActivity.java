@@ -60,10 +60,9 @@ public class EachTripActivity extends AppCompatActivity {
     private Button mDecreaseButton;
     private Button mEditTrip;
     private ImageView mChatIcon;
+    private ImageView mBackButton;
     private int mGuestNum = 0;
     //On screen item ends here//..
-
-    String hello_pass_title;
 
     //Here is all to pass intent
     private String profile_guest_max;
@@ -149,6 +148,7 @@ public class EachTripActivity extends AppCompatActivity {
         mAddButton = (Button) findViewById(R.id.trip_profile_add_btn);
         mDecreaseButton = (Button) findViewById(R.id.trip_profile_minus_btn);
         mChatIcon = (ImageView) findViewById(R.id.chat_icon);
+        mBackButton = (ImageView) findViewById(R.id.back_inside_imageview) ;
 
 
 
@@ -195,6 +195,17 @@ public class EachTripActivity extends AppCompatActivity {
                 contactHostIntent.putExtra("hostUID" , profile_host_id);
                 contactHostIntent.putExtra("hostPic" , profile_small_circle_host_pic);
                 startActivity(contactHostIntent);
+            }
+        });
+
+        mBackButton.bringToFront();
+        mBackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent backIntent = new Intent(EachTripActivity.this , OverviewPage.class);
+                startActivity(backIntent);
+                finish();
+
             }
         });
 
@@ -303,10 +314,6 @@ public class EachTripActivity extends AppCompatActivity {
                         }
 
 
-
-
-
-
                     }
 
                     @Override
@@ -346,9 +353,11 @@ public class EachTripActivity extends AppCompatActivity {
                     final String profile_big_pic = dataSnapshot.child("imgUrls").getValue().toString();
 
                     Picasso.with(EachTripActivity.this).load(profile_big_pic).networkPolicy(NetworkPolicy.OFFLINE)
-                            .placeholder(R.drawable.defaultavatar).resize(400 , 400).into(mTripPic, new Callback() {
+                            .placeholder(R.drawable.placeholder_image).resize(400 , 400).into(mTripPic, new Callback() {
                         @Override
                         public void onSuccess() {
+
+
 
                             //Do nothing if successfully load image offline. Just let it load offline for best.
 
@@ -358,7 +367,7 @@ public class EachTripActivity extends AppCompatActivity {
                         public void onError() {
 
                             //But if image is not successfully loaded offline, then load it online.
-                            Picasso.with(EachTripActivity.this).load(profile_big_pic).placeholder(R.drawable.defaultavatar)
+                            Picasso.with(EachTripActivity.this).load(profile_big_pic).placeholder(R.drawable.placeholder_image)
                                     .resize(400 , 400).into(mTripPic);
 
                         }
@@ -367,6 +376,8 @@ public class EachTripActivity extends AppCompatActivity {
                 catch (Exception e) {
 
                 }
+                mTripPic.setAdjustViewBounds(true);
+                mTripPic.setScaleType(ImageView.ScaleType.CENTER_CROP);
 
 
 

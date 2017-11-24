@@ -3,10 +3,7 @@ package com.example.android.testlogin;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Editable;
-import android.text.Selection;
 import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -107,7 +104,7 @@ public class StartQues13 extends AppCompatActivity {
 
 
         //On Text change starts here
-
+/*
         p13EditBox1.setText("$ ");
         Selection.setSelection(p13EditBox1.getText(), p13EditBox1.getText().length());
 
@@ -131,7 +128,7 @@ public class StartQues13 extends AppCompatActivity {
                 }
 
             }
-        });
+        });*/
 
         //On Text change ends here
 

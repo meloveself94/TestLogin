@@ -111,10 +111,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 signIn();
-
+/*
                 Account account = getAccount(AccountManager.get(getApplicationContext()));
                 String accountName = account.name;
-                String fullName = accountName.substring(0,accountName.lastIndexOf("@"));
+                String fullName = accountName.substring(0,accountName.lastIndexOf("@"));*/
 
             }
         });
@@ -329,10 +329,10 @@ public class MainActivity extends AppCompatActivity {
                 //Set all these data to the root of the Database
 
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                String hello = user.getUid();
+                //String hello = user.getUid();
 
-                pushRef = mDatabase.child(hello);
-                pushRef.setValue(dataMap);
+               // pushRef = mDatabase.child(hello);
+                //pushRef.setValue(dataMap);
 
             } else {
 

@@ -16,6 +16,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 /**
  * Created by Soul on 11/21/2017.
  */
@@ -34,7 +38,7 @@ public class YourHostingTripPage extends AppCompatActivity {
     private TextView mText;
 
     private String hello;
-
+    private ArrayList<OwnHostTripItem> comPostArrayList=new ArrayList<>();
     private String currentUid;
     private FirebaseUser mCurrentUser;
     @Override
@@ -60,7 +64,7 @@ public class YourHostingTripPage extends AppCompatActivity {
         mPostIdRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-
+                comPostArrayList.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
 
                     PostId postId = snapshot.getValue(PostId.class);
@@ -68,6 +72,21 @@ public class YourHostingTripPage extends AppCompatActivity {
                     Toast.makeText(YourHostingTripPage.this, hello , Toast.LENGTH_LONG).show();
                     Log.d("Hello soidjosajdo aisos" , hello);
 
+
+                    FirebaseDatabase.getInstance().getReference().child("comPostsCopy").child(hello).addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            //Log.d("%%%%%%%%",dataSnapshot.getValue().toString());
+                            OwnHostTripItem ownHostTripPost = dataSnapshot.getValue(OwnHostTripItem.class);
+                            comPostArrayList.add(ownHostTripPost);
+                            Log.d("%%%%%",comPostArrayList.get(0).getTitle());
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
 
 
                 }

@@ -57,7 +57,12 @@ public class YourHostAdapter extends RecyclerView.Adapter<YourHostAdapter.ViewHo
 
     @Override
     public int getItemCount() {
-        return ownHostTripList.size();
+
+        if (ownHostTripList != null) {
+
+            return ownHostTripList.size();
+        }
+        return 0;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
@@ -80,10 +85,6 @@ public class YourHostAdapter extends RecyclerView.Adapter<YourHostAdapter.ViewHo
             mTripSize = (TextView) mView.findViewById(R.id.host_trip_size);
 
             mTripImage = (ImageView) mView.findViewById(R.id.host_trip_image);
-
-
-
-
 
         }
     }

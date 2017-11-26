@@ -6,20 +6,7 @@
 
 
 
-    <include layout="@layout/app_bar_layout"
-        android:id="@+id/hosting_trip_bar"
-        />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Oops, looks like you haven't been hosting any trips"
-        android:layout_centerVertical="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:id="@+id/hosting_trip_text"
-        />
 
 
 
@@ -27,8 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/host_trip_list"
-        android:layout_below="@id/hosting_trip_bar"
-        android:layout_marginTop="10dp" />
+         />
 
 
 

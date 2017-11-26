@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -32,10 +31,10 @@ public class YourHostingTripPage extends AppCompatActivity {
 
     private DatabaseReference mLastRef;
 
-    YourHostAdapter adapter;
+    private YourHostAdapter myAdapter;
 
 
-    private TextView mText;
+    //private TextView mText;
 
     private String tripUniqueId;
     private ArrayList<OwnHostTripItem> comPostArrayList;
@@ -47,7 +46,7 @@ public class YourHostingTripPage extends AppCompatActivity {
         setContentView(R.layout.hosting_trip);
 
         mOwnTripList = (RecyclerView) findViewById(R.id.host_trip_list);
-        //mOwnTripList.setHasFixedSize(true);
+        mOwnTripList.setHasFixedSize(true);
         mOwnTripList.setLayoutManager(new LinearLayoutManager(this));
 
 
@@ -61,9 +60,13 @@ public class YourHostingTripPage extends AppCompatActivity {
 
         comPostArrayList = new ArrayList<>();
 
+        myAdapter = new YourHostAdapter(comPostArrayList, getApplicationContext());
+        mOwnTripList.setAdapter(myAdapter);
 
 
-        mText = (TextView) findViewById(R.id.hosting_trip_text);
+        //mText = (TextView) findViewById(R.id.hosting_trip_text);
+
+
 
         mPostIdRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -77,7 +80,6 @@ public class YourHostingTripPage extends AppCompatActivity {
                     Log.d("$$$$$$$$$$$$$" , tripUniqueId);
 
 
-            adapter = new YourHostAdapter( comPostArrayList , getApplicationContext());
 
             mLastRef = FirebaseDatabase.getInstance().getReference().child("comPostsCopy").child(tripUniqueId);
 
@@ -91,6 +93,10 @@ public class YourHostingTripPage extends AppCompatActivity {
                 Log.d("%%%%%",comPostArrayList.get(0).getTitle());
 
 
+
+
+
+
             }
 
              @Override
@@ -102,12 +108,13 @@ public class YourHostingTripPage extends AppCompatActivity {
                 }
 
 
-                adapter.notifyDataSetChanged();
-                mOwnTripList.setAdapter(adapter);
-                mOwnTripList.swapAdapter(adapter , true);
+
+
 
 
             }
+
+
 
 
             @Override
@@ -115,6 +122,10 @@ public class YourHostingTripPage extends AppCompatActivity {
 
             }
         });
+
+
+
+
 
 
 

@@ -54,19 +54,16 @@ public class YourHostingTripPage extends AppCompatActivity {
         mCurrentUser = FirebaseAuth.getInstance().getCurrentUser();
         currentUid = mCurrentUser.getUid();
 
-        mTripRef = FirebaseDatabase.getInstance().getReference().child("comPostsCopy");
-
-        mPostIdRef = FirebaseDatabase.getInstance().getReference().child("users").child(currentUid).child("fuckId");
-
         comPostArrayList = new ArrayList<>();
 
-        myAdapter = new YourHostAdapter(comPostArrayList, getApplicationContext());
+        myAdapter = new YourHostAdapter(comPostArrayList,getApplicationContext() );
         mOwnTripList.setAdapter(myAdapter);
 
 
+        mTripRef = FirebaseDatabase.getInstance().getReference().child("comPostsCopy");
         //mText = (TextView) findViewById(R.id.hosting_trip_text);
 
-
+        mPostIdRef = FirebaseDatabase.getInstance().getReference().child("users").child(currentUid).child("fuckId");
 
         mPostIdRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -92,9 +89,7 @@ public class YourHostingTripPage extends AppCompatActivity {
                 comPostArrayList.add(ownHostTripPost);
                 Log.d("%%%%%",comPostArrayList.get(0).getTitle());
 
-
-
-
+                 myAdapter.notifyDataSetChanged();
 
 
             }
@@ -108,27 +103,13 @@ public class YourHostingTripPage extends AppCompatActivity {
                 }
 
 
-
-
-
-
             }
-
-
-
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
             }
         });
-
-
-
-
-
-
-
 
 
 

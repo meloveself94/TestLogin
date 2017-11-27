@@ -1,6 +1,7 @@
 package com.example.android.testlogin;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,7 +36,7 @@ public class YourHostAdapter extends RecyclerView.Adapter<YourHostAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        OwnHostTripItem ownHostTripListy = ownHostTripList.get(position);
+        final OwnHostTripItem ownHostTripListy = ownHostTripList.get(position);
 
         holder.mTripTitle.setText(ownHostTripListy.getTitle());
         holder.mTripCountry.setText(ownHostTripListy.getCountry());
@@ -49,7 +50,10 @@ public class YourHostAdapter extends RecyclerView.Adapter<YourHostAdapter.ViewHo
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                String postKey = ownHostTripListy.getPostKey();
+                Intent tripProfileIntent = new Intent(view.getContext(), EachTripActivity.class);
+                tripProfileIntent.putExtra("pushKey", postKey);
+                view.getContext().startActivity(tripProfileIntent);
             }
         });
 

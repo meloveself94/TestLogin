@@ -11,7 +11,7 @@ public class OwnHostTripItem {
     String country;
     String pricePerGuest;
     String maxGroupSize;
-
+    private String postKey;
     public OwnHostTripItem() {
 
     }
@@ -26,7 +26,12 @@ public class OwnHostTripItem {
     }
 
 
-
+    public void setPostKey( String postKey){
+        this.postKey=postKey;
+    }
+    public String getPostKey(){
+        return this.postKey;
+    }
     public String getThumbPhoto() {
         return thumbPhoto;
     }

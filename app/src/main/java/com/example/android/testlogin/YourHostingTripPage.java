@@ -74,7 +74,7 @@ public class YourHostingTripPage extends AppCompatActivity {
         mTripRef = FirebaseDatabase.getInstance().getReference().child("comPostsCopy");
         //mText = (TextView) findViewById(R.id.hosting_trip_text);
 
-        mPostIdRef = FirebaseDatabase.getInstance().getReference().child("users").child(currentUid).child("fuckId");
+        mPostIdRef = FirebaseDatabase.getInstance().getReference().child("users").child(currentUid).child("postKeys");
 
         mPostIdRef.addValueEventListener(new ValueEventListener() {
             @Override

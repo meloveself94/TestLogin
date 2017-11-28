@@ -49,7 +49,7 @@ public class StartQues15 extends AppCompatActivity {
         String currentUid = mCurrentUser.getUid();
 
         mDatabase = FirebaseDatabase.getInstance().getReference().child("comPostsCopy");
-        mUserData = FirebaseDatabase.getInstance().getReference().child("users").child(currentUid).child("fuckId");
+        mUserData = FirebaseDatabase.getInstance().getReference().child("users").child(currentUid).child("postKeys");
 
         p15CheckBox1 = (CheckBox) findViewById(R.id.p15CheckBox1);
         p15CheckBox2 = (CheckBox) findViewById(R.id.p15CheckBox2);

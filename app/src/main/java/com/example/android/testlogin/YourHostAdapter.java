@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
@@ -64,6 +66,13 @@ public class YourHostAdapter extends RecyclerView.Adapter<YourHostAdapter.ViewHo
             public void onClick(View view) {
                 final String postKey1 = ownHostTripListy.getPostKey();
 
+                 FirebaseUser mCurrentUser;
+                 final String current_userId;
+
+                mCurrentUser = FirebaseAuth.getInstance().getCurrentUser();
+                current_userId = mCurrentUser.getUid();
+
+
 
                 //Alert Dialog Popup Here...////
                 AlertDialog.Builder confirmation = new AlertDialog.Builder(parentActivity);
@@ -80,8 +89,8 @@ public class YourHostAdapter extends RecyclerView.Adapter<YourHostAdapter.ViewHo
                                         .child(postKey1);
                                         meRef.removeValue();
 
-            DatabaseReference postRef = FirebaseDatabase.getInstance().getReference().child("users")
-                                        .child("fuckId").child(postKey1);
+            DatabaseReference postRef = FirebaseDatabase.getInstance().getReference().child("users").child(current_userId)
+                                        .child("postKeys").child(postKey1);
                                         postRef.removeValue();
 
                                 }

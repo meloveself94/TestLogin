@@ -22,6 +22,8 @@ import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
+import static com.google.zxing.qrcode.decoder.ErrorCorrectionLevel.H;
+
 
 /**
  * Created by Soul on 10/15/2017.
@@ -148,7 +150,7 @@ public class EachTripActivity extends AppCompatActivity {
         mAddButton = (Button) findViewById(R.id.trip_profile_add_btn);
         mDecreaseButton = (Button) findViewById(R.id.trip_profile_minus_btn);
         mChatIcon = (ImageView) findViewById(R.id.chat_icon);
-        mBackButton = (ImageView) findViewById(R.id.back_inside_imageview) ;
+        mBackButton = (ImageView) findViewById(R.id.back_inside_imageview);
 
 
 
@@ -390,6 +392,29 @@ public class EachTripActivity extends AppCompatActivity {
         });
 
         // This is where firebase reading codes to layout ends
+
+        //This is to set where profile pic is clickable for users to view host or others profile page.
+
+        mProfilePic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent hostProfileIntent = new Intent(EachTripActivity.this , HostProfilePage.class);
+                startActivity(hostProfileIntent);
+
+            }
+        });
+
+        //This is to set where host name is clickable for users to view host or others profile page.
+
+        mHostName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        //This is where clickable host profile pic and host name ends.
 
 
     }// This is where onCreate Ends.

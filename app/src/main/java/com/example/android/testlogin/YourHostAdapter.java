@@ -12,8 +12,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -61,26 +62,27 @@ public class YourHostAdapter extends RecyclerView.Adapter<YourHostAdapter.ViewHo
         holder.mTripDeleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //final String postKey1 = ownHostTripListy.getPostKey();
+                final String postKey1 = ownHostTripListy.getPostKey();
 
 
                 //Alert Dialog Popup Here...////
-                final AlertDialog.Builder confirmation = new AlertDialog.Builder(parentActivity);
-                confirmation.setMessage("Are You Sure You Chibai Want To Delete?")
+                AlertDialog.Builder confirmation = new AlertDialog.Builder(parentActivity);
+                String txt = "Are You Sure You Want To Delete This Created Trip?\nYou Would"  +
+                        "Need to Re-Create Your Post After Deleting";
+
+                confirmation.setMessage(txt)
                         .setCancelable(false)
                             .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
 
-                                    Toast.makeText(parentActivity , "Not confirm for chibai" , Toast.LENGTH_LONG).show();
-
-            /*DatabaseReference meRef = FirebaseDatabase.getInstance().getReference().child("comPostsCopy")
+            DatabaseReference meRef = FirebaseDatabase.getInstance().getReference().child("comPostsCopy")
                                         .child(postKey1);
                                         meRef.removeValue();
 
             DatabaseReference postRef = FirebaseDatabase.getInstance().getReference().child("users")
                                         .child("fuckId").child(postKey1);
-                                        postRef.removeValue();*/
+                                        postRef.removeValue();
 
                                 }
                             })
@@ -92,7 +94,7 @@ public class YourHostAdapter extends RecyclerView.Adapter<YourHostAdapter.ViewHo
                         });
 
                 AlertDialog alert = confirmation.create();
-                alert.setTitle("You Don't Chibai Ah");
+                alert.setTitle("Delete Current Trip");
                 alert.show();
 
 

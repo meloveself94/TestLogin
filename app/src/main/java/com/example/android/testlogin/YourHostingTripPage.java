@@ -48,11 +48,11 @@ public class YourHostingTripPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.hosting_trip);
 
-  /*     mHostOwnTripToolbar = (Toolbar) findViewById(R.id.own_host_trip_bar);;
+       mHostOwnTripToolbar = (Toolbar) findViewById(R.id.own_host_trip_bar);;
      setSupportActionBar(mHostOwnTripToolbar);
      getSupportActionBar().setElevation(3);
      getSupportActionBar().setTitle("Your Hosting Trips");
-     getSupportActionBar().setDisplayHomeAsUpEnabled(true);*/
+     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
 

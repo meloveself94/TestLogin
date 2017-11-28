@@ -25,17 +25,10 @@ public class OwnHostTripItem {
         this.maxGroupSize = maxGroupSize;
     }
 
-    public void setPostKey( String postKey){
-                this.postKey=postKey;
-            }
-
-     public String getPostKey(){
-                return this.postKey;
-            }
 
 
     public void setPostKey( String postKey){
-        this.postKey=postKey;
+        this.postKey = postKey;
     }
     public String getPostKey(){
         return this.postKey;

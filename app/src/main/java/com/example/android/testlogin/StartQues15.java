@@ -110,8 +110,8 @@ public class StartQues15 extends AppCompatActivity {
 
                     //Set all these data to the root of the Database
                     final String getRandomId = mDatabase.push().getKey();
-
-                    mUserData.push().child("postId").setValue(getRandomId);
+                    mUserData.setValue(getRandomId);
+                    mUserData.child(getRandomId).child("postId").setValue(getRandomId);
 
                     mDatabase.child(getRandomId).setValue(dataMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override

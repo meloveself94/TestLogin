@@ -98,8 +98,8 @@ public class YourHostingTripPage extends AppCompatActivity {
 
 
                 OwnHostTripItem ownHostTripPost = dataSnapshot.getValue(OwnHostTripItem.class);
-                comPostArrayList.add(ownHostTripPost);
-                ownHostTripPost.setPostKey(dataSnapshot.getKey());
+                 ownHostTripPost.setPostKey(dataSnapshot.getKey());
+                 comPostArrayList.add(ownHostTripPost);
                 Log.d("%%%%%",comPostArrayList.get(0).getTitle());
 
                  myAdapter.notifyDataSetChanged();

@@ -79,6 +79,7 @@ public class YourHostingTripPage extends AppCompatActivity {
         mPostIdRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                myAdapter.notifyDataSetChanged();
 
                 comPostArrayList.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
@@ -97,7 +98,6 @@ public class YourHostingTripPage extends AppCompatActivity {
 
 
                 OwnHostTripItem ownHostTripPost = dataSnapshot.getValue(OwnHostTripItem.class);
-                 ownHostTripPost.setPostKey(dataSnapshot.getKey());
                 comPostArrayList.add(ownHostTripPost);
                 ownHostTripPost.setPostKey(dataSnapshot.getKey());
                 Log.d("%%%%%",comPostArrayList.get(0).getTitle());

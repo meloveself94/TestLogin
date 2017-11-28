@@ -61,7 +61,7 @@ public class YourHostAdapter extends RecyclerView.Adapter<YourHostAdapter.ViewHo
         holder.mTripDeleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final String postKey1 = ownHostTripListy.getPostKey();
+                //final String postKey1 = ownHostTripListy.getPostKey();
 
 
                 //Alert Dialog Popup Here...////

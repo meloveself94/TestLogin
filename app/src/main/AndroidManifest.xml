@@ -125,7 +125,9 @@
 
         <activity android:name=".YourHostingTripPage"
             android:windowSoftInputMode="stateHidden"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:parentActivityName=".OverviewPage">
+
         </activity>
 
 

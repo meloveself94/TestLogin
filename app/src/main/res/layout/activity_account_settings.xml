@@ -5,19 +5,35 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary">
+    android:background="@drawable/gradient_color2">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+
+
+
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="170dp"
-        android:layout_height="170dp"
+        android:layout_width="155dp"
+        android:layout_height="155dp"
         android:src="@drawable/defaultavatar"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="10dp"
         android:id="@+id/account_image"
         app:civ_border_width="3.5dp"
         app:civ_border_color="#BDBDBD"
         android:elevation="3dp"/>
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -27,21 +43,164 @@
         android:textSize="30dp"
         android:layout_below="@id/account_image"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="17dp"
         android:id="@+id/display_name"
         />
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Hi there, I'm using Chatty"
-        android:textColor="#FFFFFF"
-        android:textSize="16dp"
+        android:text="Date of Birth"
+        android:textColor="#BDBDBD"
+        android:textSize="17sp"
+        android:layout_below="@id/display_name"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+
+        android:id="@+id/host_dob"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Country of Origin"
+        android:textColor="#BDBDBD"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:id="@+id/view_useless2"
+        android:layout_below="@id/display_name"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="20dp"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:editable="false"
+        android:focusable="false"
+        android:longClickable="false"
+        android:hint="Select Country"
+        android:gravity="center"
+        android:id="@+id/view_profile_country"
+        android:layout_below="@id/view_useless2"
+        android:ems="10"
+        android:background="@drawable/edit_account_settings"
+        android:layout_marginEnd="3dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="2dp"
+        android:textSize="15sp"
+        android:layout_marginTop="5dp"
+        android:elevation="3dp"
+        android:textColor="#E0E0E0"/>
+
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:editable="false"
+        android:focusable="false"
+        android:longClickable="false"
+        android:textSize="15sp"
+        android:hint="Select Date of Birth"
+        android:gravity="center"
+        android:id="@+id/view_profile_date"
+        android:ems="9"
+        android:background="@drawable/edit_account_settings"
+        android:layout_alignTop="@id/view_profile_country"
+        android:layout_alignBottom="@id/view_profile_country"
+        android:elevation="3dp"
+        android:textColor="#E0E0E0"
+        android:layout_below="@+id/host_dob"
+        android:layout_alignStart="@+id/change_image" />
+
+    <com.polyak.iconswitch.IconSwitch
+        android:id="@+id/sticky_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:isw_icon_left="@drawable/male_symbol"
+        app:isw_icon_right="@drawable/female_symbol"
+        android:layout_below="@id/view_profile_country"
+        app:isw_icon_size="22dp"
         android:layout_marginTop="15dp"
-        android:id="@+id/account_status"
-        android:layout_below="@+id/display_name"
+        app:isw_background_color="#424242"
+        app:isw_thumb_color_left="#0170BF"
+        app:isw_thumb_color_right="#FF7BAE"
+        app:isw_inactive_tint_icon_left="#FFFFFF"
+        app:isw_inactive_tint_icon_right="#FFFFFF"
+        app:isw_active_tint_icon_left="#FFFFFF"
+        app:isw_active_tint_icon_right="#FFFFFF"
         android:layout_centerHorizontal="true"
-        />
+        android:layout_marginBottom="-3dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="T"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/sticky_switch"
+                android:id="@+id/center_invi"
+                android:visibility="invisible"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="M"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:id="@+id/male"
+        android:layout_toStartOf="@id/center_invi"
+        android:layout_marginEnd="7dp"
+        android:layout_below="@+id/sticky_switch"
+
+         />
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="F"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:id="@+id/female"
+        android:layout_below="@+id/sticky_switch"
+        android:layout_toRightOf="@id/center_invi"
+        android:layout_marginStart="7dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Occupation"
+        android:textColor="#BDBDBD"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:id="@+id/view_useless1"
+        android:layout_below="@id/male"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:layout_marginBottom="2dp"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:hint="Specify Occupation"
+        android:gravity="center"
+        android:id="@+id/view_profile_occupation"
+        android:layout_below="@id/view_useless1"
+        android:layout_centerHorizontal="true"
+        android:ems="13"
+        android:background="@drawable/edit_account_settings"
+        android:textSize="16sp"
+        android:textColor="#E0E0E0"
+        android:elevation="3dp"/>
+
+
 
 
 
@@ -53,30 +212,33 @@
         android:textAllCaps="false"
         android:backgroundTint="@color/colorAccent"
         android:textColor="#FFFFFF"
-        android:textSize="18dp"
+        android:textSize="15dp"
+        android:layout_marginBottom="10dp"
+        android:padding="12dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="118dp"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:padding="12dp"/>
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="3dp"/>
 
     <Button
-        android:id="@+id/change_status"
+        android:id="@+id/account_save_button"
         android:layout_width="wrap_content"
         android:layout_height="57dp"
-        android:text="Change Status"
-        android:textSize="18dp"
-        android:backgroundTint="#FFFFFF"
-        android:layout_alignParentBottom="true"
-        android:textColor="@color/colorPrimary"
+        android:text="Save"
         android:textAllCaps="false"
+        android:backgroundTint="@color/colorAccent"
+        android:textColor="#FFFFFF"
+        android:textSize="15dp"
+        android:layout_marginBottom="10dp"
         android:padding="12dp"
-        android:layout_marginBottom="45dp"
-        android:layout_centerVertical="true"
-        android:layout_alignRight="@+id/change_image"
-        android:layout_alignEnd="@+id/change_image"
-        android:layout_alignLeft="@+id/change_image"
-        android:layout_alignStart="@+id/change_image" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="3dp"/>
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
 
 
 

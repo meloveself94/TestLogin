@@ -28,7 +28,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -40,6 +39,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.shobhitpuri.custombuttons.GoogleSignInButton;
 
 import java.util.HashMap;
 
@@ -49,11 +49,15 @@ public class MainActivity extends AppCompatActivity {
     private DatabaseReference mDatabase;
     private DatabaseReference pushRef;
 
-    private SignInButton mGoogleBtn;
+    private GoogleSignInButton mGoogleBtn;
 
     private LoginButton mfacebookBtn;
 
     private Button mEmailLoginBtn;
+
+    private Button mReplaceFbBtn;
+
+    private Button mReplaceGoogleBtn;
 
     private EditText enterUsername;
 
@@ -64,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
     CallbackManager mCallBackManager;
 
     private static final int RC_SIGN_IN = 0;
+
 
     private GoogleApiClient mGoogleApiClient;
 
@@ -95,10 +100,11 @@ public class MainActivity extends AppCompatActivity {
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
+        mReplaceFbBtn = (Button) findViewById(R.id.replace_fb_btn);
 
+        mReplaceGoogleBtn = (Button) findViewById(R.id.custom_google_btn);
 
-
-        mGoogleBtn = (SignInButton) findViewById(R.id.googleLogin);
+        mGoogleBtn = (GoogleSignInButton) findViewById(R.id.googleLoginss);
 
         mfacebookBtn = (LoginButton) findViewById(R.id.facebookLogin);
 
@@ -152,6 +158,27 @@ public class MainActivity extends AppCompatActivity {
                                 }
                             }
                         });
+            }
+        });
+
+        mfacebookBtn.setVisibility(View.INVISIBLE);
+        mGoogleBtn.setVisibility(View.INVISIBLE);
+
+        mReplaceFbBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (view.getId() == R.id.replace_fb_btn) {
+                    mfacebookBtn.performClick();
+                }
+            }
+        });
+
+        mReplaceGoogleBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (view.getId() == R.id.custom_google_btn) {
+                    mGoogleBtn.performClick();
+                }
             }
         });
 
@@ -215,6 +242,8 @@ public class MainActivity extends AppCompatActivity {
                 })
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
+
+        LoginManager.getInstance().logOut();
 
 
     }

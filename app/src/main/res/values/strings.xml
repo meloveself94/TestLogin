@@ -5,6 +5,8 @@
     <string name="fb_login_protocol_scheme">fb1772841336089701</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="ok">Open</string>
+    <string name="cancel">Open</string>
 
     <string name="firstques">You are one of the very first members of a new GoLit community. We’re excited to see what you create, and we’re even more excited to partner with you to create incredible travel experiences for guests from around the world.
     </string>

@@ -22,8 +22,6 @@ import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-import static com.google.zxing.qrcode.decoder.ErrorCorrectionLevel.H;
-
 
 /**
  * Created by Soul on 10/15/2017.
@@ -399,7 +397,9 @@ public class EachTripActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+
                 Intent hostProfileIntent = new Intent(EachTripActivity.this , HostProfilePage.class);
+                hostProfileIntent.putExtra("pushKey" , random_key_pushed);
                 startActivity(hostProfileIntent);
 
             }
@@ -410,6 +410,10 @@ public class EachTripActivity extends AppCompatActivity {
         mHostName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                Intent hostProfileIntent = new Intent(EachTripActivity.this , HostProfilePage.class);
+                hostProfileIntent.putExtra("pushKey" , random_key_pushed);
+                startActivity(hostProfileIntent);
 
             }
         });

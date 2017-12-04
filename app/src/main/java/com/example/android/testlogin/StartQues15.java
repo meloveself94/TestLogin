@@ -110,21 +110,15 @@ public class StartQues15 extends AppCompatActivity {
 
                     //Set all these data to the root of the Database
                     final String getRandomId = mDatabase.push().getKey();
-                    mUserData.setValue(getRandomId);
-                    mUserData.child(getRandomId).child("postId").setValue(getRandomId);
+                    mUserData.push().child("postId").setValue(getRandomId);
+
 
                     mDatabase.child(getRandomId).setValue(dataMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
 
                             if(task.isSuccessful()){
-/*
-                                HashMap<String , String> littleMap = new HashMap<String, String>();
-                                littleMap.put("title" , objInfo.getP5Title());
-                                littleMap.put("pricePerGuest" , String.valueOf(objInfo.getP14EnterPrice()));
-                                littleMap.put("maxGroupSize" , objInfo.getP14NoOfGuest());
-                                littleMap.put("country" , objInfo.getP8Country());
-                                littleMap.put("postId" , getRandomId);*/
+
 
                                 progressDialog.dismiss();
 
@@ -145,10 +139,6 @@ public class StartQues15 extends AppCompatActivity {
 
                         }
                     });
-
-
-
-
 
                 } else {
                     Toast.makeText(StartQues15.this , "Checkbox not checked", Toast.LENGTH_SHORT).show();

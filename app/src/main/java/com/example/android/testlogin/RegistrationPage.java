@@ -135,6 +135,10 @@ public class RegistrationPage extends AppCompatActivity {
                                 dataMap.put("email" , mEmail);
                                 dataMap.put("userPic" , "default");
                                 dataMap.put("userThumbPic" , "default");
+                                dataMap.put("dateOfBirth" , "default");
+                                dataMap.put("gender" , "male");
+                                dataMap.put("occupation" , "default");
+                                dataMap.put("userCountry" , "default");
 
 
 
@@ -189,6 +193,10 @@ public class RegistrationPage extends AppCompatActivity {
                                                         dataMap.put("email" , mEmail);
                                                         dataMap.put("userPic" , downloadLink);
                                                         dataMap.put("userThumbPic" , thumb_DownloadLink);
+                                                        dataMap.put("dateOfBirth" , "default");
+                                                        dataMap.put("gender" , "male");
+                                                        dataMap.put("occupation" , "default");
+                                                        dataMap.put("userCountry" , "default");
 
 
 

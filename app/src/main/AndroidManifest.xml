@@ -127,7 +127,12 @@
             android:windowSoftInputMode="stateHidden"
             android:screenOrientation="portrait"
             android:parentActivityName=".OverviewPage">
+        </activity>
 
+        <activity android:name=".HostProfilePage"
+            android:windowSoftInputMode="stateHidden"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".EachTripActivity">
         </activity>
 
 

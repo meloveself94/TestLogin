@@ -82,28 +82,83 @@
         android:text="Not A Member Yet? Sign Up Now"
         android:textColor="#FFFFFF"
         android:layout_below="@id/emailLogin"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="18dp"
         android:layout_centerHorizontal="true"
-        android:id="@+id/signUpText"/>
+        android:id="@+id/signUpText"
+        android:textSize="14sp"/>
 
-    <com.google.android.gms.common.SignInButton
+
+
+
+    <com.shobhitpuri.custombuttons.GoogleSignInButton
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
+        android:layout_width="2dp"
         android:layout_centerHorizontal="true"
-        android:id="@+id/googleLogin"
+        android:id="@+id/googleLoginss"
         android:layout_below="@id/signUpText"
-        android:layout_marginTop="10dp"
-        >
+        android:layout_marginTop="15dp"
+        android:text="A"
 
-    </com.google.android.gms.common.SignInButton>
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:text="Join Us With Google"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/signUpText"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/google_button_shape"
+        android:id="@+id/custom_google_btn"
+        android:textSize="15sp"
+        android:padding="10dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:text="OR"
+        android:textColor="#FFFFFF"
+        android:layout_below="@id/custom_google_btn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:id="@+id/orText"
+        />
+
+
+    <Button
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="@drawable/fb_button_shape"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:id="@+id/replace_fb_btn"
+        android:layout_below="@id/orText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="Join Us With Facebook"
+        android:padding="10dp"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        android:layout_marginBottom="10dp"
+        />
+
+
 
     <com.facebook.login.widget.LoginButton
-        android:layout_width="wrap_content"
+        xmlns:facebook="http://schemas.android.com/apk/res-auto"
+        android:layout_width="3dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/googleLogin"
+        android:layout_below="@id/orText"
         android:id="@+id/facebookLogin"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="16dp"
         >
 
     </com.facebook.login.widget.LoginButton>

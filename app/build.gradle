@@ -44,6 +44,10 @@ dependencies {
     compile 'id.zelory:compressor:2.1.0'
     compile 'de.hdodenhof:circleimageview:2.2.0'
     compile 'com.borax12.materialdaterangepicker:library:1.9'
+    compile 'com.github.siyamed:android-shape-imageview:0.9.+@aar'
+    compile 'com.shobhitpuri.custombuttons:google-signin:1.0.0'
+    compile 'com.github.GwonHyeok:StickySwitch:0.0.15'
+    compile 'com.polyak:icon-switch:1.0.0'
     testCompile 'junit:junit:4.12'
 
     configurations.all {
